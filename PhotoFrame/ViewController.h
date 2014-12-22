@@ -7,9 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DownloadImage.h"
 
 @interface ViewController : UIViewController
+{
+    DownloadImage *downloader;
+}
 
+@property (retain, nonatomic) IBOutlet UIImageView *imageView;
 
 @end
 

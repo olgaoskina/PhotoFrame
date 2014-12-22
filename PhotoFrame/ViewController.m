@@ -8,20 +8,63 @@
 
 #import "ViewController.h"
 
-@interface ViewController ()
-
-@end
-
 @implementation ViewController
 
-- (void)viewDidLoad {
+@synthesize imageView=_imageView;
+
+
+- (void)viewDidUnload
+{
+    _imageView = nil;
+    [super viewDidUnload];
+}
+
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    self.view.backgroundColor = [UIColor blackColor];
+    downloader = [[DownloadImage alloc] init];
+    [_imageView setImage:[downloader getImage]];
+    [_imageView setContentMode:UIViewContentModeCenter];
+    [self setSwipes];
+}
+
+-(void)setSwipes
+{
+    UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc]
+                                           initWithTarget:self
+                                           action:@selector(didSwipe:)];
+    swipeLeft.direction = UISwipeGestureRecognizerDirectionLeft;
+    [self.view addGestureRecognizer:swipeLeft];
+    NSLog(@"Left swipe setted");
+
+    UISwipeGestureRecognizer *swipeRigth = [[UISwipeGestureRecognizer alloc]
+                                            initWithTarget:self
+                                            action:@selector(didSwipe:)];
+    swipeRigth.direction = UISwipeGestureRecognizerDirectionRight;
+    [self.view addGestureRecognizer:swipeRigth];
+     NSLog(@"Rigth swipe setted");
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+}
+
+-(void)didSwipe:(UISwipeGestureRecognizer*)swipe
+{
+
+    if (swipe.direction == UISwipeGestureRecognizerDirectionLeft)
+    {
+        NSLog(@"LEFT SWIPE");
+        [downloader incrementIndex];
+        [_imageView setImage:[downloader getImage]];
+    }
+    else if (swipe.direction == UISwipeGestureRecognizerDirectionRight)
+    {
+        NSLog(@"RIGTH SWIPE");
+        [downloader decrementIndex];
+        [_imageView setImage:[downloader getImage]];
+    }
 }
 
 @end
