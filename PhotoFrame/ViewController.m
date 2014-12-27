@@ -16,6 +16,7 @@
 - (void)viewDidUnload
 {
     _imageView = nil;
+    yandexDownloader = nil;
     [super viewDidUnload];
 }
 
@@ -23,8 +24,8 @@
 {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor blackColor];
-    downloader = [[DownloadImage alloc] init];
-    [_imageView setImage:[downloader getImage]];
+    yandexDownloader = [[YandexDownloader alloc] initWithPath:@"/Google"];
+    [_imageView setImage:[yandexDownloader getImage]];
     [_imageView setContentMode:UIViewContentModeCenter];
     [self setSwipes];
 }
@@ -56,14 +57,14 @@
     if (swipe.direction == UISwipeGestureRecognizerDirectionLeft)
     {
         NSLog(@"LEFT SWIPE");
-        [downloader incrementIndex];
-        [_imageView setImage:[downloader getImage]];
+        [yandexDownloader incrementIndex];
+        [_imageView setImage:[yandexDownloader getImage]];
     }
     else if (swipe.direction == UISwipeGestureRecognizerDirectionRight)
     {
         NSLog(@"RIGTH SWIPE");
-        [downloader decrementIndex];
-        [_imageView setImage:[downloader getImage]];
+        [yandexDownloader decrementIndex];
+        [_imageView setImage:[yandexDownloader getImage]];
     }
 }
 

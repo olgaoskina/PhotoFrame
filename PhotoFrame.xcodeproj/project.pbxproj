@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7C3DF9821A3F83CF00773CDE /* DownloadImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C3DF9811A3F83CF00773CDE /* DownloadImage.m */; };
 		7CE146C51A3F506C00FD08A1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE146C41A3F506C00FD08A1 /* main.m */; };
 		7CE146C81A3F506C00FD08A1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE146C71A3F506C00FD08A1 /* AppDelegate.m */; };
 		7CE146CB1A3F506C00FD08A1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE146CA1A3F506C00FD08A1 /* ViewController.m */; };
@@ -15,7 +14,7 @@
 		7CE146D01A3F506C00FD08A1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CE146CF1A3F506C00FD08A1 /* Images.xcassets */; };
 		7CE146D31A3F506C00FD08A1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CE146D11A3F506C00FD08A1 /* LaunchScreen.xib */; };
 		7CE146DF1A3F506C00FD08A1 /* PhotoFrameTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE146DE1A3F506C00FD08A1 /* PhotoFrameTests.m */; };
-		7CEA3E991A405BCE00D4C0D0 /* ConnectToYandex.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEA3E981A405BCE00D4C0D0 /* ConnectToYandex.m */; };
+		7CEA3E991A405BCE00D4C0D0 /* YandexDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEA3E981A405BCE00D4C0D0 /* YandexDownloader.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,8 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		7C3DF9811A3F83CF00773CDE /* DownloadImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadImage.m; sourceTree = "<group>"; };
-		7C3DF9831A3F840100773CDE /* DownloadImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DownloadImage.h; sourceTree = "<group>"; };
+		7CDFDD7E1A4DEF4C008779AD /* Downloader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Downloader.h; sourceTree = "<group>"; };
 		7CE146BF1A3F506C00FD08A1 /* PhotoFrame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoFrame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CE146C31A3F506C00FD08A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7CE146C41A3F506C00FD08A1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -44,8 +42,8 @@
 		7CE146D81A3F506C00FD08A1 /* PhotoFrameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoFrameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CE146DD1A3F506C00FD08A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7CE146DE1A3F506C00FD08A1 /* PhotoFrameTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoFrameTests.m; sourceTree = "<group>"; };
-		7CEA3E981A405BCE00D4C0D0 /* ConnectToYandex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectToYandex.m; sourceTree = "<group>"; };
-		7CEA3E9A1A405BDF00D4C0D0 /* ConnectToYandex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConnectToYandex.h; sourceTree = "<group>"; };
+		7CEA3E981A405BCE00D4C0D0 /* YandexDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YandexDownloader.m; sourceTree = "<group>"; };
+		7CEA3E9A1A405BDF00D4C0D0 /* YandexDownloader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YandexDownloader.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,10 +67,9 @@
 		7CA8F0E01A3F525900A2BC5F /* LoadData */ = {
 			isa = PBXGroup;
 			children = (
-				7C3DF9811A3F83CF00773CDE /* DownloadImage.m */,
-				7C3DF9831A3F840100773CDE /* DownloadImage.h */,
-				7CEA3E981A405BCE00D4C0D0 /* ConnectToYandex.m */,
-				7CEA3E9A1A405BDF00D4C0D0 /* ConnectToYandex.h */,
+				7CEA3E981A405BCE00D4C0D0 /* YandexDownloader.m */,
+				7CEA3E9A1A405BDF00D4C0D0 /* YandexDownloader.h */,
+				7CDFDD7E1A4DEF4C008779AD /* Downloader.h */,
 			);
 			name = LoadData;
 			sourceTree = "<group>";
@@ -237,9 +234,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7CEA3E991A405BCE00D4C0D0 /* ConnectToYandex.m in Sources */,
+				7CEA3E991A405BCE00D4C0D0 /* YandexDownloader.m in Sources */,
 				7CE146CB1A3F506C00FD08A1 /* ViewController.m in Sources */,
-				7C3DF9821A3F83CF00773CDE /* DownloadImage.m in Sources */,
 				7CE146C81A3F506C00FD08A1 /* AppDelegate.m in Sources */,
 				7CE146C51A3F506C00FD08A1 /* main.m in Sources */,
 			);

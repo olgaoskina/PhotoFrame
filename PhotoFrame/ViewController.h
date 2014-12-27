@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DownloadImage.h"
+#import "YandexDownloader.h"
+#import "Downloader.h"
 
 @interface ViewController : UIViewController
 {
-    DownloadImage *downloader;
+     YandexDownloader *yandexDownloader;
 }
 
 @property (retain, nonatomic) IBOutlet UIImageView *imageView;
