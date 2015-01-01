@@ -10,12 +10,15 @@
 #import "YandexDownloader.h"
 #import "Downloader.h"
 
+#define URL_SCHEME @"photoframe"
+
 @interface ViewController : UIViewController
 {
      YandexDownloader *yandexDownloader;
 }
 
 @property (retain, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
 
 @end
 

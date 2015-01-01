@@ -16,9 +16,10 @@
 @interface YandexDownloader : NSObject <Downloader>
 {
     NSArray *pathsToPhotos;
+    NSString *userToken;
     unsigned long index;
 }
--(instancetype)initWithPath:(NSString*) path;
+-(instancetype)initWithPath:(NSString*) path andToken:(NSString*)token;
 -(UIImage*) getImage;
 -(void)incrementIndex;
 -(void)decrementIndex;

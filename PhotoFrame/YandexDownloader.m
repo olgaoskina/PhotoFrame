@@ -10,12 +10,13 @@
 
 @implementation YandexDownloader
 
-- (instancetype)initWithPath: (NSString*)path
+-(instancetype)initWithPath:(NSString*) path andToken:(NSString*)token;
 {
     self = [super init];
     if (self)
     {
         index = 0;
+        userToken = [NSString stringWithString:token];
         pathsToPhotos = [self getFiles:path];
     }
     return self;
@@ -35,7 +36,7 @@
 
 -(NSData*)methodGET:(NSString*)operation withParameters:(NSDictionary*)parameters
 {
-//    "Authorization: OAuth 0fae2bbef7a34adaabc8a830f29b6c67"
+//    "Authorization: OAuth 35ba0ed0f9714e08bfe17adb93c2dd08"
     NSMutableString* stringUrl = [NSMutableString stringWithFormat:@"https://cloud-api.yandex.net:443/v1/disk/%@?", operation];
     
     for(NSString *key in [parameters allKeys])
@@ -49,7 +50,7 @@
     
     NSURL *url = [NSURL URLWithString:stringUrl];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-    [request addValue:@"OAuth 0fae2bbef7a34adaabc8a830f29b6c67" forHTTPHeaderField:@"Authorization"];
+    [request addValue:[NSString stringWithFormat:@"OAuth %@", userToken] forHTTPHeaderField:@"Authorization"];
     
     NSURLResponse *response = nil;
     NSError *error = nil;
