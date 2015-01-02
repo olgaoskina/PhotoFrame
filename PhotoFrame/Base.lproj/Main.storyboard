@@ -29,12 +29,35 @@
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="Xft-l7-w8O"/>
                                 </connections>
                             </webView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Folder" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5dc-DD-FyJ">
+                                <rect key="frame" x="16" y="124" width="86" height="35"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fDb-di-v25">
+                                <rect key="frame" x="116" y="395" width="89" height="30"/>
+                                <state key="normal" title="Show it!">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showPhotosAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="stJ-tf-bVM"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eF1-dZ-TV0">
+                                <rect key="frame" x="151" y="127" width="153" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="folderLabel" destination="5dc-DD-FyJ" id="nod-yv-skF"/>
+                        <outlet property="folderTextField" destination="eF1-dZ-TV0" id="moc-bI-ptv"/>
                         <outlet property="imageView" destination="vxA-sP-r4e" id="U8g-iD-n2h"/>
+                        <outlet property="showButton" destination="fDb-di-v25" id="LZG-kW-5bY"/>
                         <outlet property="view" destination="vxA-sP-r4e" id="4N9-at-f5u"/>
                         <outlet property="webView" destination="bnS-tJ-agL" id="Fxj-17-Giq"/>
                     </connections>

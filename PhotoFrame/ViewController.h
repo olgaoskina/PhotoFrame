@@ -15,11 +15,15 @@
 
 @interface ViewController : UIViewController
 {
-     id<Downloader> yandexDownloader;
+    id<Downloader> yandexDownloader;
+    NSString *PATH_TO_PHOTOS;
 }
 
 @property (retain, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
+@property (weak, nonatomic) IBOutlet UITextField *folderTextField;
+@property (weak, nonatomic) IBOutlet UILabel *folderLabel;
+@property (weak, nonatomic) IBOutlet UIButton *showButton;
 
 @end
 

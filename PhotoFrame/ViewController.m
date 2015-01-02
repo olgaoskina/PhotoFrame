@@ -12,6 +12,9 @@
 
 @synthesize imageView=_imageView;
 @synthesize webView=_webView;
+@synthesize folderTextField=_folderTextField;
+@synthesize showButton=_showButton;
+@synthesize folderLabel=_folderLabel;
 
 - (void)viewDidUnload
 {
@@ -24,15 +27,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:URL_TO_GET_TOKEN]];
-    [_webView loadRequest:request];
-    _webView.hidden = NO;
+    _webView.hidden = YES;
 }
 
 -(void)showPhotos:(NSString*) token
 {
     self.view.backgroundColor = [UIColor blackColor];
-    yandexDownloader = [[YandexDownloader alloc] initWithPath:@"/Google" andToken:token];
+    yandexDownloader = [[YandexDownloader alloc] initWithPath:PATH_TO_PHOTOS andToken:token];
     [_imageView setImage:[yandexDownloader getNextImage]];
     [_imageView setContentMode:UIViewContentModeCenter];
     [self setSwipes];
@@ -104,6 +105,21 @@
 
 - (void)viewDidLayoutSubviews {
     _webView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+}
+
+- (IBAction)showPhotosAction:(UIButton *)sender {
+    PATH_TO_PHOTOS = _folderTextField.text;
+
+    if (![@"" isEqualToString:PATH_TO_PHOTOS]) {
+        _folderLabel.hidden = YES;
+        _folderTextField.hidden = YES;
+        _showButton.hidden = YES;
+        
+        
+        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:URL_TO_GET_TOKEN]];
+        [_webView loadRequest:request];
+        _webView.hidden = NO;
+    }
 }
 
 @end
