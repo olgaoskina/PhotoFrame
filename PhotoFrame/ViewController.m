@@ -24,23 +24,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"https://oauth.yandex.ru/authorize?response_type=token&client_id=8d16cb6010c44044a6a74e9d17ad989a"]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:URL_TO_GET_TOKEN]];
     [_webView loadRequest:request];
     _webView.hidden = NO;
-    
-    
-    
 }
 
 -(void)showPhotos:(NSString*) token
 {
     self.view.backgroundColor = [UIColor blackColor];
     yandexDownloader = [[YandexDownloader alloc] initWithPath:@"/Google" andToken:token];
-    [_imageView setImage:[yandexDownloader getImage]];
+    [_imageView setImage:[yandexDownloader getNextImage]];
     [_imageView setContentMode:UIViewContentModeCenter];
     [self setSwipes];
 }
-
 
 -(void)setSwipes
 {
@@ -59,55 +55,38 @@
      NSLog(@"Rigth swipe setted");
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-
 -(void)didSwipe:(UISwipeGestureRecognizer*)swipe
 {
 
     if (swipe.direction == UISwipeGestureRecognizerDirectionLeft)
     {
-        NSLog(@"LEFT SWIPE");
-        [yandexDownloader incrementIndex];
-        [_imageView setImage:[yandexDownloader getImage]];
+        NSLog(@"[LEFT SWIPE]");
+        [_imageView setImage:[yandexDownloader getNextImage]];
     }
     else if (swipe.direction == UISwipeGestureRecognizerDirectionRight)
     {
-        NSLog(@"RIGTH SWIPE");
-        [yandexDownloader decrementIndex];
-        [_imageView setImage:[yandexDownloader getImage]];
+        NSLog(@"[RIGTH SWIPE]");
+        [_imageView setImage:[yandexDownloader getPreviousImage]];
     }
 }
 
+
+// WebView methods
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
-    //Получаем URL
     NSURL *url = [request URL];
-    NSLog(@"[URL FROM REQUEST]: %@", url);
-    NSLog(@"[URL SCHEME]: %@", url.scheme);
-    
-    
-    //Проверяем на соответствие пользовательской URL-схеме
+
     if ([url.scheme isEqualToString:URL_SCHEME])
     {
         _webView.hidden = YES;
-        //убираем индикатор сетевой активности
         UIApplication* app = [UIApplication sharedApplication];
         app.networkActivityIndicatorVisible = NO;
-        
-        //разбираем URL на отдельные элементы
-        //наш токен будет в массиве arr под индексом 2
         NSArray *arr = [[url description] componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"#=&"]];
-        NSLog(@"[TOKEN]: %@", [arr objectAtIndex:2]);
         
         [self showPhotos:[arr objectAtIndex:2]];
-
-        //запрещаем UIWebView открывать URL
+        
         return NO;
     }
-    
-    //разрешаем UIWebView переход по URL
     return YES;
 }
 
@@ -123,5 +102,8 @@
     app.networkActivityIndicatorVisible = NO;
 }
 
+- (void)viewDidLayoutSubviews {
+    _webView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+}
 
 @end

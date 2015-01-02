@@ -13,6 +13,8 @@
 #import <UIKit/UIKit.h>
 #import "Downloader.h"
 
+#define URL_TO_API @"https://cloud-api.yandex.net:443/v1/disk/"
+
 @interface YandexDownloader : NSObject <Downloader>
 {
     NSArray *pathsToPhotos;
@@ -20,9 +22,6 @@
     unsigned long index;
 }
 -(instancetype)initWithPath:(NSString*) path andToken:(NSString*)token;
--(UIImage*) getImage;
--(void)incrementIndex;
--(void)decrementIndex;
 @end
 
 
