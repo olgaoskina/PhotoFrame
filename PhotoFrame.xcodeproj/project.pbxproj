@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C95331C1A7D94520079F8D5 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C95331B1A7D94520079F8D5 /* WebViewController.m */; };
+		7C9533201A7D9BD50079F8D5 /* ShowPhotosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C95331F1A7D9BD50079F8D5 /* ShowPhotosViewController.m */; };
 		7CE146C51A3F506C00FD08A1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE146C41A3F506C00FD08A1 /* main.m */; };
 		7CE146C81A3F506C00FD08A1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE146C71A3F506C00FD08A1 /* AppDelegate.m */; };
-		7CE146CB1A3F506C00FD08A1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE146CA1A3F506C00FD08A1 /* ViewController.m */; };
+		7CE146CB1A3F506C00FD08A1 /* ChooseFolderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE146CA1A3F506C00FD08A1 /* ChooseFolderViewController.m */; };
 		7CE146CE1A3F506C00FD08A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CE146CC1A3F506C00FD08A1 /* Main.storyboard */; };
 		7CE146D31A3F506C00FD08A1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CE146D11A3F506C00FD08A1 /* LaunchScreen.xib */; };
 		7CE146DF1A3F506C00FD08A1 /* PhotoFrameTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE146DE1A3F506C00FD08A1 /* PhotoFrameTests.m */; };
@@ -27,14 +29,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7C95331A1A7D94520079F8D5 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		7C95331B1A7D94520079F8D5 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		7C95331E1A7D9BD50079F8D5 /* ShowPhotosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowPhotosViewController.h; sourceTree = "<group>"; };
+		7C95331F1A7D9BD50079F8D5 /* ShowPhotosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowPhotosViewController.m; sourceTree = "<group>"; };
 		7CDFDD7E1A4DEF4C008779AD /* Downloader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Downloader.h; sourceTree = "<group>"; };
 		7CE146BF1A3F506C00FD08A1 /* PhotoFrame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoFrame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CE146C31A3F506C00FD08A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7CE146C41A3F506C00FD08A1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7CE146C61A3F506C00FD08A1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7CE146C71A3F506C00FD08A1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		7CE146C91A3F506C00FD08A1 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		7CE146CA1A3F506C00FD08A1 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		7CE146C91A3F506C00FD08A1 /* ChooseFolderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChooseFolderViewController.h; sourceTree = "<group>"; };
+		7CE146CA1A3F506C00FD08A1 /* ChooseFolderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChooseFolderViewController.m; sourceTree = "<group>"; };
 		7CE146CD1A3F506C00FD08A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7CE146D21A3F506C00FD08A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		7CE146D81A3F506C00FD08A1 /* PhotoFrameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoFrameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,6 +67,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7C95331D1A7D94E60079F8D5 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7CE146C91A3F506C00FD08A1 /* ChooseFolderViewController.h */,
+				7CE146CA1A3F506C00FD08A1 /* ChooseFolderViewController.m */,
+				7C95331A1A7D94520079F8D5 /* WebViewController.h */,
+				7C95331E1A7D9BD50079F8D5 /* ShowPhotosViewController.h */,
+				7C95331F1A7D9BD50079F8D5 /* ShowPhotosViewController.m */,
+				7C95331B1A7D94520079F8D5 /* WebViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		7CA8F0E01A3F525900A2BC5F /* LoadData */ = {
 			isa = PBXGroup;
 			children = (
@@ -92,11 +111,10 @@
 		7CE146C11A3F506C00FD08A1 /* PhotoFrame */ = {
 			isa = PBXGroup;
 			children = (
+				7C95331D1A7D94E60079F8D5 /* Controllers */,
 				7CA8F0E01A3F525900A2BC5F /* LoadData */,
 				7CE146C61A3F506C00FD08A1 /* AppDelegate.h */,
 				7CE146C71A3F506C00FD08A1 /* AppDelegate.m */,
-				7CE146C91A3F506C00FD08A1 /* ViewController.h */,
-				7CE146CA1A3F506C00FD08A1 /* ViewController.m */,
 				7CE146CC1A3F506C00FD08A1 /* Main.storyboard */,
 				7CE146D11A3F506C00FD08A1 /* LaunchScreen.xib */,
 				7CE146C21A3F506C00FD08A1 /* Supporting Files */,
@@ -221,7 +239,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				7CEA3E991A405BCE00D4C0D0 /* YandexDownloader.m in Sources */,
-				7CE146CB1A3F506C00FD08A1 /* ViewController.m in Sources */,
+				7C95331C1A7D94520079F8D5 /* WebViewController.m in Sources */,
+				7C9533201A7D9BD50079F8D5 /* ShowPhotosViewController.m in Sources */,
+				7CE146CB1A3F506C00FD08A1 /* ChooseFolderViewController.m in Sources */,
 				7CE146C81A3F506C00FD08A1 /* AppDelegate.m in Sources */,
 				7CE146C51A3F506C00FD08A1 /* main.m in Sources */,
 			);

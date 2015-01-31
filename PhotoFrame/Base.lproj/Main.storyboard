@@ -1,77 +1,94 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="VuG-pV-mm8">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="ufC-wZ-h7g">
+        <!--Web View Controller-->
+        <scene sceneID="IPX-rE-xEc">
             <objects>
-                <viewController storyboardIdentifier="Main" id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
-                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" restorationIdentifier="Main" id="kh9-bI-dsS">
+                <viewController id="VuG-pV-mm8" customClass="WebViewController" sceneMemberID="viewController">
+                    <webView key="view" contentMode="scaleToFill" id="fST-I6-fSN">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="delegate" destination="VuG-pV-mm8" id="5X5-vc-g22"/>
+                        </connections>
+                    </webView>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="webView" destination="fST-I6-fSN" id="PeM-Xk-aAR"/>
+                        <segue destination="ShQ-iv-OPk" kind="show" identifier="sendToken" id="5uy-3D-Mu7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bX0-pe-UQa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-513" y="-102"/>
+        </scene>
+        <!--Choose Folder View Controller-->
+        <scene sceneID="eBS-np-ZX7">
+            <objects>
+                <viewController id="ShQ-iv-OPk" customClass="ChooseFolderViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NSH-rQ-gbe"/>
+                        <viewControllerLayoutGuide type="bottom" id="nad-3w-HJc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rI3-fa-B2J">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UoC-SV-a0W">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                                <connections>
-                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="nwt-zq-2Z8"/>
-                                </connections>
-                            </scrollView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vxA-sP-r4e">
-                                <rect key="frame" x="16" y="28" width="288" height="404"/>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="88" y="206" width="138" height="90"/>
-                                </variation>
-                            </imageView>
-                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bnS-tJ-agL">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="93m-7l-bCn"/>
-                                </connections>
-                            </webView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Folder" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5dc-DD-FyJ">
-                                <rect key="frame" x="16" y="124" width="86" height="35"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Folder" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uow-8Y-Gcz">
+                                <rect key="frame" x="16" y="72" width="107" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fDb-di-v25">
-                                <rect key="frame" x="116" y="395" width="89" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="/Google" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xet-lj-S5X">
+                                <rect key="frame" x="167" y="68" width="137" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PL8-by-37F">
+                                <rect key="frame" x="132" y="347" width="56" height="30"/>
                                 <state key="normal" title="Show it!">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="showPhotosAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="stJ-tf-bVM"/>
+                                    <action selector="showToken:" destination="ShQ-iv-OPk" eventType="touchUpInside" id="7SP-LJ-SjO"/>
+                                    <segue destination="DHE-xu-LUx" kind="show" id="Vof-sn-gdf"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eF1-dZ-TV0">
-                                <rect key="frame" x="151" y="127" width="153" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <outlet property="folderLabel" destination="5dc-DD-FyJ" id="nod-yv-skF"/>
-                        <outlet property="folderTextField" destination="eF1-dZ-TV0" id="moc-bI-ptv"/>
-                        <outlet property="imageView" destination="vxA-sP-r4e" id="U8g-iD-n2h"/>
-                        <outlet property="scrollView" destination="UoC-SV-a0W" id="WSV-Ci-woE"/>
-                        <outlet property="showButton" destination="fDb-di-v25" id="LZG-kW-5bY"/>
-                        <outlet property="view" destination="vxA-sP-r4e" id="4N9-at-f5u"/>
-                        <outlet property="webView" destination="bnS-tJ-agL" id="Fxj-17-Giq"/>
+                        <outlet property="folder" destination="xet-lj-S5X" id="44E-dq-qnV"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="33V-0i-efD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="115" y="138"/>
+            <point key="canvasLocation" x="55" y="-102"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="ZL4-rX-nYK">
+            <objects>
+                <viewController id="DHE-xu-LUx" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Gar-3k-qQC"/>
+                        <viewControllerLayoutGuide type="bottom" id="Vxi-WU-6ay"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4l3-PH-c4P">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ROJ-Js-OZN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="507" y="-102"/>
         </scene>
     </scenes>
 </document>
