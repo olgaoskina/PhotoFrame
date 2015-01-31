@@ -36,8 +36,7 @@
 
 -(NSData*)methodGET:(NSString*)operation withParameters:(NSDictionary*)parameters
 {
-//    "Authorization: OAuth 35ba0ed0f9714e08bfe17adb93c2dd08"
-    NSMutableString* stringUrl = [NSMutableString stringWithFormat:@"https://cloud-api.yandex.net:443/v1/disk/%@?", operation];
+    NSMutableString* stringUrl = [NSMutableString stringWithFormat:@"%@%@?", URL_TO_API, operation];
     
     for(NSString *key in [parameters allKeys])
     {
@@ -81,12 +80,17 @@
     return [self downloadImage:urlWithPhoto];
 }
 
--(UIImage*) getImage
+-(UIImage*) getNextImage
 {
+    [self incrementIndex];
     return [self getImage:[pathsToPhotos objectAtIndex:index]];
 }
 
-
+-(UIImage*) getPreviousImage
+{
+    [self decrementIndex];
+    return [self getImage:[pathsToPhotos objectAtIndex:index]];
+}
 
 -(UIImage*)downloadImage:(NSString*)stringUrl
 {
