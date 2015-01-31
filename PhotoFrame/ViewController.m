@@ -15,6 +15,7 @@
 @synthesize folderTextField=_folderTextField;
 @synthesize showButton=_showButton;
 @synthesize folderLabel=_folderLabel;
+@synthesize scrollView=_scrollView;
 
 - (void)viewDidUnload
 {
@@ -28,18 +29,25 @@
 {
     [super viewDidLoad];
     _webView.hidden = YES;
+    _scrollView.hidden = YES;
+    _scrollView.contentSize = _imageView.frame.size;
+    [_scrollView addSubview:_imageView];
+    _scrollView.minimumZoomScale = _scrollView.frame.size.width / _imageView.frame.size.width;
+    _scrollView.maximumZoomScale = 2.0;
+    [_scrollView setZoomScale:_scrollView.minimumZoomScale];
 }
 
 -(void)showPhotos:(NSString*) token
 {
+    _scrollView.hidden = NO;
     self.view.backgroundColor = [UIColor blackColor];
     yandexDownloader = [[YandexDownloader alloc] initWithPath:PATH_TO_PHOTOS andToken:token];
     [_imageView setImage:[yandexDownloader getNextImage]];
     [_imageView setContentMode:UIViewContentModeCenter];
-    [self setSwipes];
+    [self setSwipesAndTaps];
 }
 
--(void)setSwipes
+-(void)setSwipesAndTaps
 {
     UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc]
                                            initWithTarget:self
@@ -53,7 +61,14 @@
                                             action:@selector(didSwipe:)];
     swipeRigth.direction = UISwipeGestureRecognizerDirectionRight;
     [self.view addGestureRecognizer:swipeRigth];
-     NSLog(@"Rigth swipe setted");
+    NSLog(@"Rigth swipe setted");
+    
+    UITapGestureRecognizer *tapTwice = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapTwice:)];
+    
+    tapTwice.numberOfTapsRequired = 2;
+    
+    [self.view addGestureRecognizer:tapTwice];
+    NSLog(@"Taps setted");
 }
 
 -(void)didSwipe:(UISwipeGestureRecognizer*)swipe
@@ -121,5 +136,22 @@
         _webView.hidden = NO;
     }
 }
+
+- (void)tapTwice:(UIGestureRecognizer *)gesture
+{
+    NSLog(@"[TWICE TAP]");
+    if (_scrollView.zoomScale == 2) {
+        [_scrollView setZoomScale:1];
+    } else {
+        [_scrollView setZoomScale:2];
+    }
+    
+}
+
+- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
+{
+    return _imageView;
+}
+
 
 @end

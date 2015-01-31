@@ -24,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *folderTextField;
 @property (weak, nonatomic) IBOutlet UILabel *folderLabel;
 @property (weak, nonatomic) IBOutlet UIButton *showButton;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @end
 
