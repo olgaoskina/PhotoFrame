@@ -11,17 +11,16 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "Downloader.h"
+#import "PhotosDownloader.h"
 
 #define URL_TO_API @"https://cloud-api.yandex.net:443/v1/disk/"
 
-@interface YandexDownloader : NSObject <Downloader>
+@interface YandexPhotosDownloader : NSObject <PhotosDownloader>
 {
     NSArray *pathsToPhotos;
     NSString *userToken;
     unsigned long index;
 }
--(instancetype)initWithPath:(NSString*) path andToken:(NSString*)token;
 @end
 
 

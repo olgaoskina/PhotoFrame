@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "YandexDownloader.h"
+#import "YandexPhotosDownloader.h"
 
 @interface ShowPhotosViewController : UIViewController
 

@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Olga Oskina. All rights reserved.
 //
 
-#import "YandexDownloader.h"
+#import "YandexPhotosDownloader.h"
 
-@implementation YandexDownloader
+@implementation YandexPhotosDownloader
 
 -(instancetype)initWithPath:(NSString*) path andToken:(NSString*)token;
 {
@@ -74,7 +74,6 @@
     return request;
 }
 
-
 -(UIImage*) getImage:(NSString*)onPath
 {
     NSArray *keys = [NSArray arrayWithObjects:@"path", @"preview_size", nil];
@@ -111,7 +110,6 @@
                                                      error:&error];
     
     UIImage *image = [[UIImage alloc] initWithData:data];
-//    NSLog(@"%@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
     NSLog(@"[STOP LOAD IMAGE]");
     return image;
 }
@@ -169,7 +167,6 @@
     }
     return result;
 }
-
 
 -(void)incrementIndex
 {

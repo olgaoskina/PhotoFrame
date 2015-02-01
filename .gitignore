@@ -1,5 +1,10 @@
 # Xcode
 #
+*.iml
+
+## Directory-based project format:
+.idea/
+
 build/
 *.pbxuser
 !default.pbxuser

@@ -11,7 +11,7 @@
 @implementation ShowPhotosViewController {
     NSString *token;
     NSString *folder;
-    YandexDownloader *downloader;
+    YandexPhotosDownloader *downloader;
 }
 
 @synthesize scrollView=_scrollView;
@@ -28,7 +28,7 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    downloader = [[YandexDownloader alloc] initWithPath:folder andToken:token];
+    downloader = [[YandexPhotosDownloader alloc] initWithPath:folder andToken:token];
     [_imageView setImage:[downloader getNextImage]];
 }
 

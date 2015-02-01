@@ -9,11 +9,12 @@
 #ifndef PhotoFrame_Downloader_h
 #define PhotoFrame_Downloader_h
 
-@protocol Downloader
+@protocol PhotosDownloader
 
 -(UIImage*)getNextImage;
 -(UIImage*)getPreviousImage;
 -(NSArray*)getFiles:(NSString*)onPath;
+-(instancetype)initWithPath:(NSString*) path andToken:(NSString*)token;
 
 @end
 
