@@ -48,9 +48,7 @@
     [stringUrl deleteCharactersInRange:range];
     NSLog(@"[URL FROM DOWNLOAD]: %@", stringUrl);
     
-    NSURL *url = [NSURL URLWithString:stringUrl];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-    [request addValue:[NSString stringWithFormat:@"OAuth %@", userToken] forHTTPHeaderField:@"Authorization"];
+    NSURLRequest *request = [self createRequest: stringUrl];
     
     NSURLResponse *response = nil;
     NSError *error = nil;
@@ -67,6 +65,15 @@
     }
     
 }
+
+-(NSURLRequest*) createRequest: (NSString*) stringUrl
+{
+    NSURL *url = [NSURL URLWithString:stringUrl];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    [request addValue:[NSString stringWithFormat:@"OAuth %@", userToken] forHTTPHeaderField:@"Authorization"];
+    return request;
+}
+
 
 -(UIImage*) getImage:(NSString*)onPath
 {
@@ -96,11 +103,7 @@
 -(UIImage*)downloadImage:(NSString*)stringUrl
 {
     NSLog(@"[START LOAD IMAGE]");
-    
-    NSURL *url = [NSURL URLWithString:stringUrl];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-    [request addValue:@"OAuth 0fae2bbef7a34adaabc8a830f29b6c67" forHTTPHeaderField:@"Authorization"];
-    
+    NSURLRequest *request = [self createRequest: stringUrl];
     NSURLResponse *response = nil;
     NSError *error = nil;
     NSData *data = [NSURLConnection sendSynchronousRequest:request
@@ -108,7 +111,7 @@
                                                      error:&error];
     
     UIImage *image = [[UIImage alloc] initWithData:data];
-    NSLog(@"%@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+//    NSLog(@"%@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
     NSLog(@"[STOP LOAD IMAGE]");
     return image;
 }

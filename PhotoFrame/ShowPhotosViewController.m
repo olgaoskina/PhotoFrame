@@ -22,12 +22,19 @@
     [super viewDidLoad];
 
     [self prepareScrollView];
+    [self prepareImageView];
+    [self prepareSwipeHandling];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     downloader = [[YandexDownloader alloc] initWithPath:folder andToken:token];
     [_imageView setImage:[downloader getNextImage]];
+}
+
+-(void) prepareImageView
+{
+    [_imageView setContentMode:UIViewContentModeScaleAspectFit];
 }
 
 -(void) prepareScrollView
@@ -37,6 +44,35 @@
     _scrollView.minimumZoomScale = _scrollView.frame.size.width / _imageView.frame.size.width;
     _scrollView.maximumZoomScale = 2.0;
     [_scrollView setZoomScale:_scrollView.minimumZoomScale];
+}
+
+-(void)prepareSwipeHandling
+{
+    UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc]
+                                           initWithTarget:self
+                                           action:@selector(didSwipe:)];
+    swipeLeft.direction = UISwipeGestureRecognizerDirectionLeft;
+    [self.view addGestureRecognizer:swipeLeft];
+    NSLog(@"Left swipe setted");
+    
+    UISwipeGestureRecognizer *swipeRigth = [[UISwipeGestureRecognizer alloc]
+                                            initWithTarget:self
+                                            action:@selector(didSwipe:)];
+    swipeRigth.direction = UISwipeGestureRecognizerDirectionRight;
+    [self.view addGestureRecognizer:swipeRigth];
+    NSLog(@"Rigth swipe setted");
+}
+
+-(void)didSwipe:(UISwipeGestureRecognizer*)swipe
+{
+    if (swipe.direction == UISwipeGestureRecognizerDirectionLeft)
+    {
+        [_imageView setImage:[downloader getNextImage]];
+    }
+    else if (swipe.direction == UISwipeGestureRecognizerDirectionRight)
+    {
+        [_imageView setImage:[downloader getPreviousImage]];
+    }
 }
 
 -(void) setToken:(NSString*)newToken
