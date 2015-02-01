@@ -29,8 +29,12 @@
     token = newToken;
 }
 
-- (IBAction)showToken:(id)sender {
-    _folder.text = token;
+- (IBAction)showPhotos:(id)sender {
+    if (![_folder.text isEqual:@""]) {
+        [self performSegueWithIdentifier:@"sendFolder" sender:self];
+    } else {
+        NSLog(@"EMPTY FOLDER");
+    }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -38,7 +42,8 @@
     NSLog(@"[IDENTIFIER]: %@", [segue identifier]);
     if ([[segue identifier] isEqualToString:@"sendFolder"])
     {
-//        [[segue destinationViewController] setFolder:_folder.text];
+        [[segue destinationViewController] setFolder:_folder.text];
+        [[segue destinationViewController] setToken:token];
     }
     else
     {

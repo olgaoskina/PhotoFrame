@@ -10,9 +10,11 @@
 #define PhotoFrame_Downloader_h
 
 @protocol Downloader
+
 -(UIImage*)getNextImage;
 -(UIImage*)getPreviousImage;
 -(NSArray*)getFiles:(NSString*)onPath;
+
 @end
 
 #endif

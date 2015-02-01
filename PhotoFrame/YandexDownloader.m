@@ -12,6 +12,7 @@
 
 -(instancetype)initWithPath:(NSString*) path andToken:(NSString*)token;
 {
+    NSLog(@"In initWithPath [PATH]: %@", path);
     self = [super init];
     if (self)
     {
@@ -45,7 +46,7 @@
     }
     NSRange range = NSMakeRange(stringUrl.length-1, 1);
     [stringUrl deleteCharactersInRange:range];
-    NSLog(@"%@", stringUrl);
+    NSLog(@"[URL FROM DOWNLOAD]: %@", stringUrl);
     
     NSURL *url = [NSURL URLWithString:stringUrl];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];

@@ -8,30 +8,45 @@
 
 #import "ShowPhotosViewController.h"
 
-@interface ShowPhotosViewController ()
+@implementation ShowPhotosViewController {
+    NSString *token;
+    NSString *folder;
+    YandexDownloader *downloader;
+}
 
-@end
+@synthesize scrollView=_scrollView;
+@synthesize imageView=_imageView;
 
-@implementation ShowPhotosViewController
-
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
+    [self prepareScrollView];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)viewDidAppear:(BOOL)animated
+{
+    downloader = [[YandexDownloader alloc] initWithPath:folder andToken:token];
+    [_imageView setImage:[downloader getNextImage]];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void) prepareScrollView
+{
+    _scrollView.contentSize = _imageView.frame.size;
+    [_scrollView addSubview:_imageView];
+    _scrollView.minimumZoomScale = _scrollView.frame.size.width / _imageView.frame.size.width;
+    _scrollView.maximumZoomScale = 2.0;
+    [_scrollView setZoomScale:_scrollView.minimumZoomScale];
 }
-*/
+
+-(void) setToken:(NSString*)newToken
+{
+    token = newToken;
+}
+
+-(void) setFolder:(NSString*)newFolder
+{
+    folder = newFolder;
+}
 
 @end

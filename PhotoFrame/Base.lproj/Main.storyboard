@@ -44,7 +44,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="/Google" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xet-lj-S5X">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="/Google" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xet-lj-S5X">
                                 <rect key="frame" x="167" y="68" width="137" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -55,8 +55,8 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="showToken:" destination="ShQ-iv-OPk" eventType="touchUpInside" id="7SP-LJ-SjO"/>
-                                    <segue destination="DHE-xu-LUx" kind="show" id="Vof-sn-gdf"/>
+                                    <action selector="showPhotos:" destination="ShQ-iv-OPk" eventType="touchUpInside" id="wb9-c2-Um7"/>
+                                    <segue destination="DHE-xu-LUx" kind="show" identifier="sendFolder" id="Vof-sn-gdf"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -69,26 +69,34 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="33V-0i-efD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="55" y="-102"/>
+            <point key="canvasLocation" x="-55" y="-102"/>
         </scene>
-        <!--View Controller-->
+        <!--Show Photos View Controller-->
         <scene sceneID="ZL4-rX-nYK">
             <objects>
-                <viewController id="DHE-xu-LUx" sceneMemberID="viewController">
+                <viewController id="DHE-xu-LUx" customClass="ShowPhotosViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Gar-3k-qQC"/>
-                        <viewControllerLayoutGuide type="bottom" id="Vxi-WU-6ay"/>
+                        <viewControllerLayoutGuide type="top" id="GBn-dI-by6"/>
+                        <viewControllerLayoutGuide type="bottom" id="MeC-8F-diO"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="4l3-PH-c4P">
+                    <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" id="fy7-0g-s2N">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eRP-No-fvz">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                            </imageView>
+                        </subviews>
+                    </scrollView>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="imageView" destination="eRP-No-fvz" id="ziZ-sh-6lR"/>
+                        <outlet property="scrollView" destination="fy7-0g-s2N" id="4V2-WK-IWo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ROJ-Js-OZN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="507" y="-102"/>
+            <point key="canvasLocation" x="415" y="-102"/>
         </scene>
     </scenes>
 </document>

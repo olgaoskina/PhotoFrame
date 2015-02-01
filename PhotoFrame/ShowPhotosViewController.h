@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "YandexDownloader.h"
 
 @interface ShowPhotosViewController : UIViewController
+
+-(void) setFolder:(NSString*)newFolder;
+-(void) setToken:(NSString*)newToken;
+
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 @end

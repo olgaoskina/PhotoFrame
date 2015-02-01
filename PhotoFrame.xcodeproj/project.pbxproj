@@ -72,9 +72,9 @@
 			children = (
 				7CE146C91A3F506C00FD08A1 /* ChooseFolderViewController.h */,
 				7CE146CA1A3F506C00FD08A1 /* ChooseFolderViewController.m */,
-				7C95331A1A7D94520079F8D5 /* WebViewController.h */,
 				7C95331E1A7D9BD50079F8D5 /* ShowPhotosViewController.h */,
 				7C95331F1A7D9BD50079F8D5 /* ShowPhotosViewController.m */,
+				7C95331A1A7D94520079F8D5 /* WebViewController.h */,
 				7C95331B1A7D94520079F8D5 /* WebViewController.m */,
 			);
 			name = Controllers;
@@ -111,12 +111,12 @@
 		7CE146C11A3F506C00FD08A1 /* PhotoFrame */ = {
 			isa = PBXGroup;
 			children = (
-				7C95331D1A7D94E60079F8D5 /* Controllers */,
-				7CA8F0E01A3F525900A2BC5F /* LoadData */,
 				7CE146C61A3F506C00FD08A1 /* AppDelegate.h */,
 				7CE146C71A3F506C00FD08A1 /* AppDelegate.m */,
-				7CE146CC1A3F506C00FD08A1 /* Main.storyboard */,
+				7C95331D1A7D94E60079F8D5 /* Controllers */,
 				7CE146D11A3F506C00FD08A1 /* LaunchScreen.xib */,
+				7CA8F0E01A3F525900A2BC5F /* LoadData */,
+				7CE146CC1A3F506C00FD08A1 /* Main.storyboard */,
 				7CE146C21A3F506C00FD08A1 /* Supporting Files */,
 			);
 			path = PhotoFrame;
