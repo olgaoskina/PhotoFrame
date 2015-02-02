@@ -14,7 +14,7 @@
     NSLog(@"In initWithPath [PATH]: %@", path);
     self = [super init];
     if (self) {
-        index = 0;
+        index = -1;
         self.userToken = [NSString stringWithString:token];
         pathsToPhotos = [self getFiles:path];
     }

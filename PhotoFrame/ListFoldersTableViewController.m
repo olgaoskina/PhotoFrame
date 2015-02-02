@@ -22,7 +22,9 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     downloader = [[YandexFoldersDownloader alloc] initWithToken:token];
+    NSLog(@"IN ListFoldersTableViewController:viewDidAppear [CURRENT PATH]: %@", _currentPath);
     folders = [downloader getFolders:_currentPath];
+    
     [self.tableView reloadData];
 }
 
@@ -78,8 +80,8 @@
     if ([[segue identifier] isEqualToString:@"sendFolder"])
     {
         [[segue destinationViewController] setToken:token];
-        [[segue destinationViewController] setFolder:[_currentFolder title]];
-        NSLog(@"IN ListFoldersTableViewController:prepareForSegue [TITLE]: %@",[_currentFolder title]);
+        [[segue destinationViewController] setFolder:_currentPath];
+        NSLog(@"IN ListFoldersTableViewController:prepareForSegue [TITLE]: %@",_currentPath);
     }
     else
     {
