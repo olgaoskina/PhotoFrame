@@ -11,6 +11,7 @@
 @implementation ListFoldersTableViewController
 
 @synthesize currentFolder=_currentFolder;
+@synthesize currentPath=_currentPath;
 
 - (void)viewDidLoad
 {
@@ -20,19 +21,21 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    downloader = [[YandexFoldersDownloader alloc] initWithPath:@"/" andToken:token];
-    folders = [downloader getFolders:@"/"];
+    downloader = [[YandexFoldersDownloader alloc] initWithToken:token];
+    folders = [downloader getFolders:_currentPath];
     [self.tableView reloadData];
 }
 
 -(void) setToken: (NSString*)newToken
 {
     token = newToken;
+    NSLog(@"IN ListFoldersTableViewController:setToken [SETTED TOKEN]: %@", token);
 }
-
 -(void) setTitle: (NSString*)newTitle
 {
-    [_currentFolder setTitle:newTitle];
+    [_currentFolder setTitle: newTitle];
+    NSLog(@"IN ListFoldersTableViewController:setTitle [SETTED TITLE MUST BE]: %@", newTitle);
+    NSLog(@"IN ListFoldersTableViewController:setTitle [SETTED TITLE]: %@", [_currentFolder title]);
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -51,6 +54,22 @@
     }
     cell.textLabel.text = [[folders objectAtIndex:indexPath.row] objectForKey:@"name"];
     return cell;
+}
+
+-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:true];
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    ListFoldersTableViewController *nextFilesViewController = [storyboard instantiateViewControllerWithIdentifier:@"FilesViewController"];
+    
+    NSDictionary *selectedFolder = [folders objectAtIndex:indexPath.row];
+    [nextFilesViewController setToken:token];
+    [nextFilesViewController setTitle:[selectedFolder objectForKey:@"name"]];
+    [nextFilesViewController setCurrentPath:[selectedFolder objectForKey:@"path"]];
+    NSLog(@"IN ListFoldersTableViewController:tableView [TITLE]: %@", [selectedFolder objectForKey:@"name"]);
+    
+    [[self navigationController] pushViewController:nextFilesViewController animated:true];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

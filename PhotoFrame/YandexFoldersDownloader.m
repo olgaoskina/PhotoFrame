@@ -10,7 +10,7 @@
 
 @implementation YandexFoldersDownloader
 
-- (instancetype)initWithPath:(NSString *)path andToken:(NSString *)token {
+- (instancetype)initWithToken:(NSString *)token {
     self = [super init];
     if (self) {
         self.userToken = [NSString stringWithString:token];

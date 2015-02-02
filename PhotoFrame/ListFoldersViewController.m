@@ -24,7 +24,7 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    downloader = [[YandexFoldersDownloader alloc] initWithPath:@"/" andToken:token];
+    downloader = [[YandexFoldersDownloader alloc] initWithToken:token];
     folders = [downloader getFolders:@"/"];
     [_tableView reloadData];
 }

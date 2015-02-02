@@ -29,13 +29,13 @@
         <!--Root View Controller-->
         <scene sceneID="vie-Oi-Qxa">
             <objects>
-                <tableViewController id="dsP-Iw-BnN" customClass="ListFoldersTableViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="FilesViewController" id="dsP-Iw-BnN" customClass="ListFoldersTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="aBf-N8-quV">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="x1b-pA-Q14">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FolderCell" id="x1b-pA-Q14">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="x1b-pA-Q14" id="vFj-Hv-ZWa">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -77,72 +77,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ewa-pn-flG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-644" y="655"/>
-        </scene>
-        <!--List Folders View Controller-->
-        <scene sceneID="Ukh-Be-cnj">
-            <objects>
-                <viewController id="eIh-9X-QqD" customClass="ListFoldersViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="jMR-tL-CZi">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <connections>
-                            <outlet property="dataSource" destination="eIh-9X-QqD" id="rCq-f5-S0P"/>
-                            <outlet property="delegate" destination="eIh-9X-QqD" id="5rE-dD-JTC"/>
-                        </connections>
-                    </tableView>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
-                    <connections>
-                        <outlet property="tableView" destination="jMR-tL-CZi" id="Uhf-UT-heb"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6eU-GX-PVR" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1337" y="786"/>
-        </scene>
-        <!--Choose Folder View Controller-->
-        <scene sceneID="eBS-np-ZX7">
-            <objects>
-                <viewController id="ShQ-iv-OPk" customClass="ChooseFolderViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="NSH-rQ-gbe"/>
-                        <viewControllerLayoutGuide type="bottom" id="nad-3w-HJc"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="rI3-fa-B2J">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Folder" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uow-8Y-Gcz">
-                                <rect key="frame" x="16" y="72" width="107" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="/Google" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xet-lj-S5X">
-                                <rect key="frame" x="167" y="68" width="137" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PL8-by-37F">
-                                <rect key="frame" x="132" y="347" width="56" height="30"/>
-                                <state key="normal" title="Show it!">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="showPhotos:" destination="ShQ-iv-OPk" eventType="touchUpInside" id="wb9-c2-Um7"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
-                    <connections>
-                        <outlet property="folder" destination="xet-lj-S5X" id="44E-dq-qnV"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="33V-0i-efD" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-227" y="-570"/>
         </scene>
         <!--Show Photos View Controller-->
         <scene sceneID="ZL4-rX-nYK">

@@ -102,9 +102,9 @@
 		7CA8F0E01A3F525900A2BC5F /* LoadData */ = {
 			isa = PBXGroup;
 			children = (
-				7C4211881A7E46110036D4AA /* FoldersDownloader.h */,
 				7C42118A1A7EC9EF0036D4AA /* Downloader.h */,
 				7C42118B1A7ECBA90036D4AA /* Downloader.m */,
+				7C4211881A7E46110036D4AA /* FoldersDownloader.h */,
 				7CDFDD7E1A4DEF4C008779AD /* PhotosDownloader.h */,
 				7C4211871A7E45F00036D4AA /* YandexFolderDownloader.h */,
 				7C4211851A7E45DE0036D4AA /* YandexFoldersDownloader.m */,
