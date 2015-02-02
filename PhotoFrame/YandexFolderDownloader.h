@@ -14,7 +14,11 @@
 #import "FoldersDownloader.h"
 #import "Downloader.h"
 
-@interface YandexFoldersDownloader : Downloader <FoldersDownloader>
+@interface YandexFoldersDownloader : Downloader <FoldersDownloader> {
+    long countPhotos;
+}
+
+-(long) getCountPhotosInFolder;
 
 @end
 

@@ -64,7 +64,7 @@
     {
         ListFoldersTableViewController *controller = [[[segue destinationViewController] viewControllers] objectAtIndex:0];
         [controller setToken:token];
-        [controller setTitle:@"/"];
+        [controller setTitle:@"Disk"];
         [controller setCurrentPath:@"/"];
         NSLog(@"IN WebViewController:prepareForSegue [TITLE]: %@", controller.currentFolder.title);
     }

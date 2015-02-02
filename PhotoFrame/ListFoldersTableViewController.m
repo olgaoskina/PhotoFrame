@@ -12,6 +12,8 @@
 
 @synthesize currentFolder=_currentFolder;
 @synthesize currentPath=_currentPath;
+@synthesize countPhotosInFolder=_countPhotosInFolder;
+@synthesize doneButton=_doneButton;
 
 - (void)viewDidLoad
 {
@@ -22,9 +24,12 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     downloader = [[YandexFoldersDownloader alloc] initWithToken:token];
-    NSLog(@"IN ListFoldersTableViewController:viewDidAppear [CURRENT PATH]: %@", _currentPath);
     folders = [downloader getFolders:_currentPath];
-    
+    long count = [downloader getCountPhotosInFolder];
+    _countPhotosInFolder.text = [NSString stringWithFormat:@"Photos in folder: %ld", count];
+    if (count == 0) {
+        [_doneButton setEnabled:NO];
+    }
     [self.tableView reloadData];
 }
 
