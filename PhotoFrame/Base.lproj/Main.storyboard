@@ -34,6 +34,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <label key="tableHeaderView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SQ6-0T-z4d">
+                            <rect key="frame" x="0.0" y="64" width="320" height="20"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FolderCell" id="x1b-pA-Q14">
                                 <autoresizingMask key="autoresizingMask"/>
@@ -55,7 +62,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="countPhotosInFolder" destination="SQ6-0T-z4d" id="XHA-RX-rPa"/>
                         <outlet property="currentFolder" destination="cX7-m0-5MT" id="rOI-BT-Dgb"/>
+                        <outlet property="doneButton" destination="QvX-4a-1jy" id="AGA-GK-L1d"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NGg-hd-G2g" userLabel="First Responder" sceneMemberID="firstResponder"/>

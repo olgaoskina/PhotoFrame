@@ -18,7 +18,7 @@
 }
 
 - (NSData *)methodGET:(NSString *)userToken operation:(NSString *)operation withParameters:(NSDictionary *)parameters {
-    NSMutableString *stringUrl = [NSMutableString stringWithFormat:@"%@%@?", URL_TO_API, operation];
+    NSMutableString *stringUrl = [NSMutableString stringWithFormat:@"%@?", operation];
 
     for (NSString *key in [parameters allKeys]) {
         NSString *value = [parameters valueForKey:key];
@@ -26,8 +26,11 @@
     }
     NSRange range = NSMakeRange(stringUrl.length - 1, 1);
     [stringUrl deleteCharactersInRange:range];
+    
+    NSString *encodeUrl = [NSString stringWithFormat:@"%@%@", URL_TO_API,[stringUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    NSLog(@"IN Downloader:methodGET [URL]: %@", encodeUrl);
 
-    NSURLRequest *request = [self createRequest:stringUrl withToken:userToken];
+    NSURLRequest *request = [self createRequest:encodeUrl withToken:userToken];
 
     NSURLResponse *response = nil;
     NSError *error = nil;

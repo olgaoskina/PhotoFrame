@@ -44,14 +44,22 @@
     return [self downloadImage:urlWithPhoto];
 }
 
+// return next photo or nil, if no photos in this folder
 - (UIImage *)getNextImage {
-    [self incrementIndex];
-    return [self getImage:[pathsToPhotos objectAtIndex:index]];
+    if (pathsToPhotos.count != 0) {
+        [self incrementIndex];
+        return [self getImage:[pathsToPhotos objectAtIndex:index]];
+    }
+    return nil;
 }
 
+// return previous photo or nil, if no photos in this folder
 - (UIImage *)getPreviousImage {
-    [self decrementIndex];
-    return [self getImage:[pathsToPhotos objectAtIndex:index]];
+    if (pathsToPhotos.count != 0) {
+        [self decrementIndex];
+        return [self getImage:[pathsToPhotos objectAtIndex:index]];
+    }
+    return nil;
 }
 
 - (UIImage *)downloadImage:(NSString *)stringUrl {

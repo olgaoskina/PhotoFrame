@@ -14,6 +14,7 @@
     self = [super init];
     if (self) {
         self.userToken = [NSString stringWithString:token];
+        countPhotos = 0;
     }
     return self;
 }
@@ -23,11 +24,11 @@
     NSArray *values = [NSArray arrayWithObjects:onPath, nil];
     NSDictionary *dictionary = [NSDictionary dictionaryWithObjects:values forKeys:keys];
     NSData *json = [self methodGET:self.userToken operation:@"resources" withParameters:dictionary];
-    NSLog(@"IN YandexFoldersDownloader:getFolders [FOLDERS COUNT]: %lu", (unsigned long) [[self getFoldersFrom:json] count]);
     return [self getFoldersFrom:json];
 }
 
 - (NSArray *)getFoldersFrom:(NSData *)json {
+    NSLog(@"IN YandexFolderDownloader:getFoldersFrom");
     NSMutableArray *result = [[NSMutableArray alloc] init];
     NSError *error = nil;
     id object = [NSJSONSerialization
@@ -48,9 +49,21 @@
             if ([type isEqualToString:@"dir"]) {
                 [result addObject:[NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:name, path, nil] forKeys:[NSArray arrayWithObjects:@"name", @"path", nil]]];
             }
+            if ([type isEqualToString:@"file"]) {
+                NSString *mimeType = item[@"mime_type"];
+                if ([mimeType containsString:@"image"]) {
+                    countPhotos++;
+                }
+
+
+            }
         }
     }
     return result;
+}
+
+-(long) getCountPhotosInFolder {
+    return countPhotos;
 }
 
 @end
