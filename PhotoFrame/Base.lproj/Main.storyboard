@@ -19,12 +19,64 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="webView" destination="fST-I6-fSN" id="PeM-Xk-aAR"/>
-                        <segue destination="eIh-9X-QqD" kind="show" identifier="sendToken" id="LsG-X7-Osc"/>
+                        <segue destination="zhf-Z4-sQm" kind="show" identifier="sendToken" id="Nrz-ND-t80"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bX0-pe-UQa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-865" y="-114"/>
+        </scene>
+        <!--Root View Controller-->
+        <scene sceneID="vie-Oi-Qxa">
+            <objects>
+                <tableViewController id="dsP-Iw-BnN" customClass="ListFoldersTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="aBf-N8-quV">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="x1b-pA-Q14">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="x1b-pA-Q14" id="vFj-Hv-ZWa">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="dsP-Iw-BnN" id="eVu-mt-hBf"/>
+                            <outlet property="delegate" destination="dsP-Iw-BnN" id="d6B-lz-s1A"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="cX7-m0-5MT">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="QvX-4a-1jy">
+                            <connections>
+                                <segue destination="DHE-xu-LUx" kind="show" identifier="sendFolder" id="CSz-r3-KoN"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="currentFolder" destination="cX7-m0-5MT" id="rOI-BT-Dgb"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NGg-hd-G2g" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-122" y="661"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="2Ao-f3-zTm">
+            <objects>
+                <navigationController id="zhf-Z4-sQm" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hOK-jS-gW3">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="dsP-Iw-BnN" kind="relationship" relationship="rootViewController" id="hn6-La-kV4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ewa-pn-flG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-644" y="655"/>
         </scene>
         <!--List Folders View Controller-->
         <scene sceneID="Ukh-Be-cnj">
@@ -46,7 +98,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6eU-GX-PVR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-865" y="540"/>
+            <point key="canvasLocation" x="-1337" y="786"/>
         </scene>
         <!--Choose Folder View Controller-->
         <scene sceneID="eBS-np-ZX7">
@@ -78,7 +130,6 @@
                                 </state>
                                 <connections>
                                     <action selector="showPhotos:" destination="ShQ-iv-OPk" eventType="touchUpInside" id="wb9-c2-Um7"/>
-                                    <segue destination="DHE-xu-LUx" kind="show" identifier="sendFolder" id="Vof-sn-gdf"/>
                                 </connections>
                             </button>
                         </subviews>

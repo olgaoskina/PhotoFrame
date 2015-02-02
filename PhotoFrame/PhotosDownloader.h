@@ -6,8 +6,10 @@
 //  Copyright (c) 2014 Olga Oskina. All rights reserved.
 //
 
-#ifndef PhotoFrame_Downloader_h
-#define PhotoFrame_Downloader_h
+#ifndef PhotoFrame_PhotosDownloader_h
+#define PhotoFrame_PhotosDownloader_h
+
+#import <UIKit/UIKit.h>
 
 @protocol PhotosDownloader
 

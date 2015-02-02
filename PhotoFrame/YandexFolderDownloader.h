@@ -10,16 +10,11 @@
 #define PhotoFrame_YandexFolderDownloader_h
 
 #import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
+
 #import "FoldersDownloader.h"
+#import "Downloader.h"
 
-#define URL_TO_API @"https://cloud-api.yandex.net:443/v1/disk/"
-
-@interface YandexFoldersDownloader : NSObject <FoldersDownloader>
-{
-    NSString *userToken;
-    NSArray *folders; // NSArray of NSDictionary (<name, path>)
-}
+@interface YandexFoldersDownloader : Downloader <FoldersDownloader>
 
 @end
 

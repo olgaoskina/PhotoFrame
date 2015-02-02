@@ -20,7 +20,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    NSLog(@"IN ShowPhotosViewController:viewDidLoad");
     [self prepareScrollView];
     [self prepareImageView];
     [self prepareSwipeHandling];
