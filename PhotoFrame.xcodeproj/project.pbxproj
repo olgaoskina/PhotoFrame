@@ -7,13 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		137D17A311521C007B7A509D /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 137D1BFEA6BF570242813A37 /* README.md */; };
+		7C4211861A7E45DE0036D4AA /* YandexFoldersDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C4211851A7E45DE0036D4AA /* YandexFoldersDownloader.m */; };
+		7C42118C1A7ECBA90036D4AA /* Downloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C42118B1A7ECBA90036D4AA /* Downloader.m */; };
+		7C95331C1A7D94520079F8D5 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C95331B1A7D94520079F8D5 /* WebViewController.m */; };
+		7C9533201A7D9BD50079F8D5 /* ShowPhotosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C95331F1A7D9BD50079F8D5 /* ShowPhotosViewController.m */; };
 		7CE146C51A3F506C00FD08A1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE146C41A3F506C00FD08A1 /* main.m */; };
 		7CE146C81A3F506C00FD08A1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE146C71A3F506C00FD08A1 /* AppDelegate.m */; };
-		7CE146CB1A3F506C00FD08A1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE146CA1A3F506C00FD08A1 /* ViewController.m */; };
 		7CE146CE1A3F506C00FD08A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CE146CC1A3F506C00FD08A1 /* Main.storyboard */; };
 		7CE146D31A3F506C00FD08A1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CE146D11A3F506C00FD08A1 /* LaunchScreen.xib */; };
 		7CE146DF1A3F506C00FD08A1 /* PhotoFrameTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE146DE1A3F506C00FD08A1 /* PhotoFrameTests.m */; };
-		7CEA3E991A405BCE00D4C0D0 /* YandexDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEA3E981A405BCE00D4C0D0 /* YandexDownloader.m */; };
+		7CE66DE01A7F7F4100B7109E /* ListFoldersTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE66DDF1A7F7F4100B7109E /* ListFoldersTableViewController.m */; };
+		7CEA3E991A405BCE00D4C0D0 /* YandexPhotosDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CEA3E981A405BCE00D4C0D0 /* YandexPhotosDownloader.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,20 +32,30 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		7CDFDD7E1A4DEF4C008779AD /* Downloader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Downloader.h; sourceTree = "<group>"; };
+		137D1BFEA6BF570242813A37 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = file.md; path = README.md; sourceTree = "<group>"; };
+		7C4211851A7E45DE0036D4AA /* YandexFoldersDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YandexFoldersDownloader.m; sourceTree = "<group>"; };
+		7C4211871A7E45F00036D4AA /* YandexFolderDownloader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YandexFolderDownloader.h; sourceTree = "<group>"; };
+		7C4211881A7E46110036D4AA /* FoldersDownloader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FoldersDownloader.h; sourceTree = "<group>"; };
+		7C42118A1A7EC9EF0036D4AA /* Downloader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Downloader.h; sourceTree = "<group>"; };
+		7C42118B1A7ECBA90036D4AA /* Downloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Downloader.m; sourceTree = "<group>"; };
+		7C95331A1A7D94520079F8D5 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		7C95331B1A7D94520079F8D5 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		7C95331E1A7D9BD50079F8D5 /* ShowPhotosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowPhotosViewController.h; sourceTree = "<group>"; };
+		7C95331F1A7D9BD50079F8D5 /* ShowPhotosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowPhotosViewController.m; sourceTree = "<group>"; };
+		7CDFDD7E1A4DEF4C008779AD /* PhotosDownloader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotosDownloader.h; sourceTree = "<group>"; };
 		7CE146BF1A3F506C00FD08A1 /* PhotoFrame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoFrame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CE146C31A3F506C00FD08A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7CE146C41A3F506C00FD08A1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7CE146C61A3F506C00FD08A1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7CE146C71A3F506C00FD08A1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		7CE146C91A3F506C00FD08A1 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		7CE146CA1A3F506C00FD08A1 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		7CE146CD1A3F506C00FD08A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7CE146D21A3F506C00FD08A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		7CE146D81A3F506C00FD08A1 /* PhotoFrameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoFrameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CE146DE1A3F506C00FD08A1 /* PhotoFrameTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoFrameTests.m; sourceTree = "<group>"; };
-		7CEA3E981A405BCE00D4C0D0 /* YandexDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YandexDownloader.m; sourceTree = "<group>"; };
-		7CEA3E9A1A405BDF00D4C0D0 /* YandexDownloader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YandexDownloader.h; sourceTree = "<group>"; };
+		7CE66DDE1A7F7F4100B7109E /* ListFoldersTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListFoldersTableViewController.h; sourceTree = "<group>"; };
+		7CE66DDF1A7F7F4100B7109E /* ListFoldersTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListFoldersTableViewController.m; sourceTree = "<group>"; };
+		7CEA3E981A405BCE00D4C0D0 /* YandexPhotosDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YandexPhotosDownloader.m; sourceTree = "<group>"; };
+		7CEA3E9A1A405BDF00D4C0D0 /* YandexPhotosDownloader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YandexPhotosDownloader.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,12 +76,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7C95331D1A7D94E60079F8D5 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7C95331E1A7D9BD50079F8D5 /* ShowPhotosViewController.h */,
+				7C95331F1A7D9BD50079F8D5 /* ShowPhotosViewController.m */,
+				7C95331A1A7D94520079F8D5 /* WebViewController.h */,
+				7C95331B1A7D94520079F8D5 /* WebViewController.m */,
+				7CE66DDE1A7F7F4100B7109E /* ListFoldersTableViewController.h */,
+				7CE66DDF1A7F7F4100B7109E /* ListFoldersTableViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		7CA8F0E01A3F525900A2BC5F /* LoadData */ = {
 			isa = PBXGroup;
 			children = (
-				7CEA3E981A405BCE00D4C0D0 /* YandexDownloader.m */,
-				7CEA3E9A1A405BDF00D4C0D0 /* YandexDownloader.h */,
-				7CDFDD7E1A4DEF4C008779AD /* Downloader.h */,
+				7C42118A1A7EC9EF0036D4AA /* Downloader.h */,
+				7C42118B1A7ECBA90036D4AA /* Downloader.m */,
+				7C4211881A7E46110036D4AA /* FoldersDownloader.h */,
+				7CDFDD7E1A4DEF4C008779AD /* PhotosDownloader.h */,
+				7C4211871A7E45F00036D4AA /* YandexFolderDownloader.h */,
+				7C4211851A7E45DE0036D4AA /* YandexFoldersDownloader.m */,
+				7CEA3E9A1A405BDF00D4C0D0 /* YandexPhotosDownloader.h */,
+				7CEA3E981A405BCE00D4C0D0 /* YandexPhotosDownloader.m */,
 			);
 			name = LoadData;
 			sourceTree = "<group>";
@@ -77,6 +110,7 @@
 				7CE146C11A3F506C00FD08A1 /* PhotoFrame */,
 				7CE146DB1A3F506C00FD08A1 /* PhotoFrameTests */,
 				7CE146C01A3F506C00FD08A1 /* Products */,
+				137D1BFEA6BF570242813A37 /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
@@ -92,13 +126,12 @@
 		7CE146C11A3F506C00FD08A1 /* PhotoFrame */ = {
 			isa = PBXGroup;
 			children = (
-				7CA8F0E01A3F525900A2BC5F /* LoadData */,
 				7CE146C61A3F506C00FD08A1 /* AppDelegate.h */,
 				7CE146C71A3F506C00FD08A1 /* AppDelegate.m */,
-				7CE146C91A3F506C00FD08A1 /* ViewController.h */,
-				7CE146CA1A3F506C00FD08A1 /* ViewController.m */,
-				7CE146CC1A3F506C00FD08A1 /* Main.storyboard */,
+				7C95331D1A7D94E60079F8D5 /* Controllers */,
 				7CE146D11A3F506C00FD08A1 /* LaunchScreen.xib */,
+				7CA8F0E01A3F525900A2BC5F /* LoadData */,
+				7CE146CC1A3F506C00FD08A1 /* Main.storyboard */,
 				7CE146C21A3F506C00FD08A1 /* Supporting Files */,
 			);
 			path = PhotoFrame;
@@ -203,6 +236,7 @@
 			files = (
 				7CE146CE1A3F506C00FD08A1 /* Main.storyboard in Resources */,
 				7CE146D31A3F506C00FD08A1 /* LaunchScreen.xib in Resources */,
+				137D17A311521C007B7A509D /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,8 +254,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7CEA3E991A405BCE00D4C0D0 /* YandexDownloader.m in Sources */,
-				7CE146CB1A3F506C00FD08A1 /* ViewController.m in Sources */,
+				7CEA3E991A405BCE00D4C0D0 /* YandexPhotosDownloader.m in Sources */,
+				7C42118C1A7ECBA90036D4AA /* Downloader.m in Sources */,
+				7C95331C1A7D94520079F8D5 /* WebViewController.m in Sources */,
+				7CE66DE01A7F7F4100B7109E /* ListFoldersTableViewController.m in Sources */,
+				7C4211861A7E45DE0036D4AA /* YandexFoldersDownloader.m in Sources */,
+				7C9533201A7D9BD50079F8D5 /* ShowPhotosViewController.m in Sources */,
 				7CE146C81A3F506C00FD08A1 /* AppDelegate.m in Sources */,
 				7CE146C51A3F506C00FD08A1 /* main.m in Sources */,
 			);
