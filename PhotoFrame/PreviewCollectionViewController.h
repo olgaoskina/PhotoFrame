@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "YandexPhotosDownloader.h"
 #import "ShowPhotosViewController.h"
+#import "PhotoCell.h"
 
 @interface PreviewCollectionViewController : UICollectionViewController {
     NSString *token;

@@ -141,4 +141,8 @@
     size = newSize;
 }
 
+-(void) setIndex: (NSInteger)newIndex
+{
+    index = newIndex;
+}
 @end

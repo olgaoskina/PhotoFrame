@@ -60,18 +60,12 @@
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"IN PreviewCollectionViewController:cellForItemAtIndexPath");
-    UICollectionViewCell *photoCell = [collectionView
-                                    dequeueReusableCellWithReuseIdentifier:@"PhotoCell"
-                                    forIndexPath:indexPath];
-
-    
-    UIImage *photo = [downloader getImage:[downloader getPathsToPhotos][indexPath.row]];
-    
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:photo];
-    
-    [photoCell addSubview:imageView];
-    return photoCell;
+    NSLog(@"IN PreviewCollectionViewController:cellForItemAtIndexPath [INDEX]: %lu [NAME]: %@", (long)indexPath.row, [downloader getPathsToPhotos][indexPath.row]);
+    PhotoCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PhotoCell" forIndexPath:indexPath];
+    UIImage *truckImage = [[UIImage alloc] init];
+    truckImage = [downloader getImage:[downloader getPathsToPhotos][indexPath.row]];
+    cell.imageView.image = truckImage;
+    return cell;
 }
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -88,7 +82,7 @@
     {
         [[segue destinationViewController] setToken:token];
         [[segue destinationViewController] setFolder:folder];
-        [[segue destinationViewController] setPathToFirstImage:[downloader getPathsToPhotos][selectedIndexPath.row]];
+        [[segue destinationViewController] setIndexToFirstImage:selectedIndexPath.row];
     }
     else
     {

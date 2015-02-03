@@ -11,6 +11,7 @@
 		7C4211861A7E45DE0036D4AA /* YandexFoldersDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C4211851A7E45DE0036D4AA /* YandexFoldersDownloader.m */; };
 		7C42118C1A7ECBA90036D4AA /* Downloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C42118B1A7ECBA90036D4AA /* Downloader.m */; };
 		7C71D2D61A80FBC800271A0E /* PreviewCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C71D2D51A80FBC800271A0E /* PreviewCollectionViewController.m */; };
+		7C71D2D91A811CE100271A0E /* PhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C71D2D81A811CE100271A0E /* PhotoCell.m */; };
 		7C95331C1A7D94520079F8D5 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C95331B1A7D94520079F8D5 /* WebViewController.m */; };
 		7C9533201A7D9BD50079F8D5 /* ShowPhotosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C95331F1A7D9BD50079F8D5 /* ShowPhotosViewController.m */; };
 		7CE146C51A3F506C00FD08A1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE146C41A3F506C00FD08A1 /* main.m */; };
@@ -41,6 +42,8 @@
 		7C42118B1A7ECBA90036D4AA /* Downloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Downloader.m; sourceTree = "<group>"; };
 		7C71D2D41A80FBC800271A0E /* PreviewCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreviewCollectionViewController.h; sourceTree = "<group>"; };
 		7C71D2D51A80FBC800271A0E /* PreviewCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreviewCollectionViewController.m; sourceTree = "<group>"; };
+		7C71D2D71A811CE100271A0E /* PhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCell.h; sourceTree = "<group>"; };
+		7C71D2D81A811CE100271A0E /* PhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoCell.m; sourceTree = "<group>"; };
 		7C95331A1A7D94520079F8D5 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		7C95331B1A7D94520079F8D5 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		7C95331E1A7D9BD50079F8D5 /* ShowPhotosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowPhotosViewController.h; sourceTree = "<group>"; };
@@ -138,6 +141,8 @@
 				7CA8F0E01A3F525900A2BC5F /* LoadData */,
 				7CE146CC1A3F506C00FD08A1 /* Main.storyboard */,
 				7CE146C21A3F506C00FD08A1 /* Supporting Files */,
+				7C71D2D71A811CE100271A0E /* PhotoCell.h */,
+				7C71D2D81A811CE100271A0E /* PhotoCell.m */,
 			);
 			path = PhotoFrame;
 			sourceTree = "<group>";
@@ -265,6 +270,7 @@
 				7C95331C1A7D94520079F8D5 /* WebViewController.m in Sources */,
 				7CE66DE01A7F7F4100B7109E /* ListFoldersTableViewController.m in Sources */,
 				7C4211861A7E45DE0036D4AA /* YandexFoldersDownloader.m in Sources */,
+				7C71D2D91A811CE100271A0E /* PhotoCell.m in Sources */,
 				7C9533201A7D9BD50079F8D5 /* ShowPhotosViewController.m in Sources */,
 				7CE146C81A3F506C00FD08A1 /* AppDelegate.m in Sources */,
 				7CE146C51A3F506C00FD08A1 /* main.m in Sources */,

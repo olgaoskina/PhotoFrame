@@ -21,6 +21,7 @@
 -(NSArray*)getPathsToPhotos;
 -(UIImage *)getImage:(NSString *)onPath;
 -(void) setSize: (NSString*)newSize;
+-(void) setIndex: (NSInteger)newIndex;
 @end
 
 
