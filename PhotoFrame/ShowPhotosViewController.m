@@ -43,7 +43,7 @@
     _scrollView.contentSize = _imageView.frame.size;
     [_scrollView addSubview:_imageView];
     _scrollView.minimumZoomScale = _scrollView.frame.size.width / _imageView.frame.size.width;
-    _scrollView.maximumZoomScale = 2.0;
+    _scrollView.maximumZoomScale = 4.0;
     [_scrollView setZoomScale:_scrollView.minimumZoomScale];
     _scrollView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
 }
@@ -87,10 +87,15 @@
 
 - (void)tapTwice:(UIGestureRecognizer *)gesture
 {
-    if (_scrollView.zoomScale == 2) {
-        [_scrollView setZoomScale:1];
+    if ([_scrollView zoomScale] != _scrollView.minimumZoomScale) {
+        CGRect rect = [_scrollView frame];
+        [_scrollView zoomToRect:rect animated:YES];
+        NSLog(@"IN ShowPhotosViewController:tapTwice [ZOOM SCALE]: %f", [_scrollView zoomScale]);
     } else {
-        [_scrollView setZoomScale:2];
+        CGPoint center = [gesture locationInView:_scrollView];
+        CGRect rect = CGRectMake(center.x - 50, center.y - 50, 100, 100);
+        [_scrollView zoomToRect:rect animated:YES];
+        NSLog(@"IN ShowPhotosViewController:tapTwice [ZOOM SCALE]: %f", [_scrollView zoomScale]);
     }
 }
 
