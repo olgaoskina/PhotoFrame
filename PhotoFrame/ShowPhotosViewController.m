@@ -24,6 +24,7 @@
     [self prepareScrollView];
     [self prepareImageView];
     [self prepareSwipeHandling];
+    [self prepareTapHandling];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -44,6 +45,7 @@
     _scrollView.minimumZoomScale = _scrollView.frame.size.width / _imageView.frame.size.width;
     _scrollView.maximumZoomScale = 2.0;
     [_scrollView setZoomScale:_scrollView.minimumZoomScale];
+    _scrollView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
 }
 
 -(void)prepareSwipeHandling
@@ -63,6 +65,14 @@
     NSLog(@"Rigth swipe setted");
 }
 
+-(void) prepareTapHandling
+{
+    UITapGestureRecognizer *tapTwice = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapTwice:)];
+    tapTwice.numberOfTapsRequired = 2;
+    [_scrollView addGestureRecognizer:tapTwice];
+    NSLog(@"IN ShowPhotosViewController:prepareTapHandling TAPS SETTED");
+}
+
 -(void)didSwipe:(UISwipeGestureRecognizer*)swipe
 {
     if (swipe.direction == UISwipeGestureRecognizerDirectionLeft)
@@ -75,6 +85,15 @@
     }
 }
 
+- (void)tapTwice:(UIGestureRecognizer *)gesture
+{
+    if (_scrollView.zoomScale == 2) {
+        [_scrollView setZoomScale:1];
+    } else {
+        [_scrollView setZoomScale:2];
+    }
+}
+
 -(void) setToken:(NSString*)newToken
 {
     token = newToken;
@@ -83,6 +102,17 @@
 -(void) setFolder:(NSString*)newFolder
 {
     folder = newFolder;
+}
+
+// ScrollView methods
+- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
+{
+    return _imageView;
+}
+
+- (void)scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(UIView *)view atScale:(CGFloat)scale
+{
+    [_scrollView flashScrollIndicators];
 }
 
 @end

@@ -103,6 +103,9 @@
                                 <rect key="frame" x="8" y="8" width="304" height="464"/>
                             </imageView>
                         </subviews>
+                        <connections>
+                            <outlet property="delegate" destination="DHE-xu-LUx" id="4RM-er-DlZ"/>
+                        </connections>
                     </scrollView>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>

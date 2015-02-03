@@ -34,7 +34,7 @@
 
 - (UIImage *)getImage:(NSString *)onPath {
     NSArray *keys = [NSArray arrayWithObjects:@"path", @"preview_size", nil];
-    NSArray *values = [NSArray arrayWithObjects:onPath, @"M", nil];
+    NSArray *values = [NSArray arrayWithObjects:onPath, @"L", nil];
     NSDictionary *dictionary = [NSDictionary dictionaryWithObjects:values forKeys:keys];
     NSData *data = [self methodGET:self.userToken operation:@"resources" withParameters:dictionary];
     NSString *stringFromData = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
