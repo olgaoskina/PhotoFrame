@@ -32,12 +32,10 @@
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
     flowLayout = [[UICollectionViewFlowLayout alloc] init];
     flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-    [flowLayout setItemSize:CGSizeMake(191, 160)];
+    [flowLayout setItemSize:CGSizeMake(150, 150)];
     [flowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
     [_photosCollectionView setCollectionViewLayout:flowLayout];
     _photosCollectionView.bounces = YES;
-    [_photosCollectionView setShowsHorizontalScrollIndicator:NO];
-    [_photosCollectionView setShowsVerticalScrollIndicator:NO];
 }
 
 -(void) setToken:(NSString*)newToken
@@ -65,6 +63,7 @@
     UIImage *truckImage = [[UIImage alloc] init];
     truckImage = [downloader getImage:[downloader getPathsToPhotos][indexPath.row]];
     cell.imageView.image = truckImage;
+    cell.backgroundColor = [UIColor whiteColor];
     return cell;
 }
 
