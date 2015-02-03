@@ -11,6 +11,7 @@
 @implementation ShowPhotosViewController {
     NSString *token;
     NSString *folder;
+    NSString *pathToFirstImage;
     YandexPhotosDownloader *downloader;
 }
 
@@ -30,7 +31,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     downloader = [[YandexPhotosDownloader alloc] initWithPath:folder andToken:token];
-    [_imageView setImage:[downloader getNextImage]];
+    [_imageView setImage:[downloader getImage:pathToFirstImage]];
 }
 
 -(void) prepareImageView
@@ -107,6 +108,11 @@
 -(void) setFolder:(NSString*)newFolder
 {
     folder = newFolder;
+}
+
+-(void) setPathToFirstImage:(NSString*)newPath
+{
+    pathToFirstImage = newPath;
 }
 
 // ScrollView methods

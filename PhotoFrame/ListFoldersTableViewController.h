@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "YandexFolderDownloader.h"
-#import "ShowPhotosViewController.h"
+#import "PreviewCollectionViewController.h"
 
 @interface ListFoldersTableViewController : UITableViewController {
     NSArray *folders;

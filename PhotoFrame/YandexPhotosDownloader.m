@@ -17,6 +17,7 @@
         index = -1;
         self.userToken = [NSString stringWithString:token];
         pathsToPhotos = [self getFiles:path];
+        size = @"L";
     }
     return self;
 }
@@ -34,7 +35,7 @@
 
 - (UIImage *)getImage:(NSString *)onPath {
     NSArray *keys = [NSArray arrayWithObjects:@"path", @"preview_size", nil];
-    NSArray *values = [NSArray arrayWithObjects:onPath, @"L", nil];
+    NSArray *values = [NSArray arrayWithObjects:onPath, size, nil];
     NSDictionary *dictionary = [NSDictionary dictionaryWithObjects:values forKeys:keys];
     NSData *data = [self methodGET:self.userToken operation:@"resources" withParameters:dictionary];
     NSString *stringFromData = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
@@ -106,7 +107,6 @@
     if ([object isKindOfClass:[NSDictionary class]]) {
         NSDictionary *embedded = object[@"_embedded"];
         NSArray *items = embedded[@"items"];
-        NSLog(@"[items]: %@", items);
         for (NSDictionary *item in items) {
             NSString *path = item[@"path"];
             NSString *type = item[@"type"];
@@ -129,6 +129,16 @@
 - (void)decrementIndex {
     index = index == 0 ? pathsToPhotos.count - 1 : index - 1;
     NSLog(@"%lu", index);
+}
+
+-(NSArray*)getPathsToPhotos
+{
+    return pathsToPhotos;
+}
+
+-(void) setSize: (NSString*)newSize
+{
+    size = newSize;
 }
 
 @end

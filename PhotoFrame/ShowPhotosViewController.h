@@ -13,6 +13,7 @@
 
 -(void) setFolder:(NSString*)newFolder;
 -(void) setToken:(NSString*)newToken;
+-(void) setPathToFirstImage:(NSString*)newPath;
 
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;

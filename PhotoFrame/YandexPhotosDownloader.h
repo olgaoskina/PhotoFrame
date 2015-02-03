@@ -16,7 +16,11 @@
 @interface YandexPhotosDownloader : Downloader <PhotosDownloader> {
     NSArray *pathsToPhotos;
     unsigned long index;
+    NSString *size;
 }
+-(NSArray*)getPathsToPhotos;
+-(UIImage *)getImage:(NSString *)onPath;
+-(void) setSize: (NSString*)newSize;
 @end
 
 
