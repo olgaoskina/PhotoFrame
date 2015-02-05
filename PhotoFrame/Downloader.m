@@ -18,7 +18,7 @@
 }
 
 - (NSData *)methodGET:(NSString *)userToken operation:(NSString *)operation withParameters:(NSDictionary *)parameters {
-    NSMutableString *stringUrl = [NSMutableString stringWithFormat:@"%@?", operation];
+    NSMutableString *stringUrl = [NSMutableString stringWithFormat:@"%@?limit=100&", operation];
 
     for (NSString *key in [parameters allKeys]) {
         NSString *value = [parameters valueForKey:key];

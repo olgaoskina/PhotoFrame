@@ -7,8 +7,8 @@
 //
 
 #import "PreviewCollectionViewController.h"
-
-@implementation PreviewCollectionViewController
+        
+                @implementation PreviewCollectionViewController
 
 @synthesize photosCollectionView=_photosCollectionView;
 
@@ -38,6 +38,17 @@
     _photosCollectionView.bounces = YES;
 }
 
+-(void) setPhotoWithIndex: (NSDictionary*) params
+{
+    NSIndexPath *indexPath = params[@"indexPath"];
+    PhotoCell *cell = params[@"cell"];
+    UIImage *photo = [downloader getImage:[downloader getPathsToPhotos][indexPath.row]];
+    [cell.imageView performSelectorOnMainThread:@selector(setImage:)
+                           withObject:photo
+                        waitUntilDone:YES];
+    NSLog(@"IN PreviewCollectionViewController:setPhotoWithIndex [PHOTO SETTED]");
+}
+
 -(void) setToken:(NSString*)newToken
 {
     token = newToken;
@@ -60,10 +71,17 @@
 {
     NSLog(@"IN PreviewCollectionViewController:cellForItemAtIndexPath [INDEX]: %lu [NAME]: %@", (long)indexPath.row, [downloader getPathsToPhotos][indexPath.row]);
     PhotoCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PhotoCell" forIndexPath:indexPath];
-    UIImage *truckImage = [[UIImage alloc] init];
-    truckImage = [downloader getImage:[downloader getPathsToPhotos][indexPath.row]];
-    cell.imageView.image = truckImage;
-    cell.backgroundColor = [UIColor whiteColor];
+    
+    NSDictionary* params = [NSDictionary dictionaryWithObjectsAndKeys:indexPath,@"indexPath",cell,@"cell", nil];
+    
+    cell.imageView.image = nil;
+    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    NSOperation *loadImgOp = [[NSInvocationOperation alloc]
+                              initWithTarget:self
+                              selector:@selector(setPhotoWithIndex:)
+                              object:params];
+    [queue addOperation:loadImgOp];
+    
     return cell;
 }
 
@@ -74,7 +92,6 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-//    NSLog(@"IN WebViewController:prepareForSegue [SEGUE]: %@", [segue ]);
     NSLog(@"IN WebViewController:prepareForSegue [IDENTIFIER]: %@", [segue identifier]);
     NSIndexPath *selectedIndexPath = [[_photosCollectionView indexPathsForSelectedItems] objectAtIndex:0];
     if ([[segue identifier] isEqualToString:@"sendImage"])
