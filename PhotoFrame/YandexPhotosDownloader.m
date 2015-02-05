@@ -131,18 +131,15 @@
     NSLog(@"%lu", index);
 }
 
--(NSArray*)getPathsToPhotos
-{
+- (NSArray *)getPathsToPhotos {
     return pathsToPhotos;
 }
 
--(void) setSize: (NSString*)newSize
-{
+- (void)setSize:(NSString *)newSize {
     size = newSize;
 }
 
--(void) setIndex: (NSInteger)newIndex
-{
+- (void)setIndex:(NSInteger)newIndex {
     index = newIndex;
 }
 @end

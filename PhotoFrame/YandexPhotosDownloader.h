@@ -18,10 +18,13 @@
     unsigned long index;
     NSString *size;
 }
--(NSArray*)getPathsToPhotos;
--(UIImage *)getImage:(NSString *)onPath;
--(void) setSize: (NSString*)newSize;
--(void) setIndex: (NSInteger)newIndex;
+- (NSArray *)getPathsToPhotos;
+
+- (UIImage *)getImage:(NSString *)onPath;
+
+- (void)setSize:(NSString *)newSize;
+
+- (void)setIndex:(NSInteger)newIndex;
 @end
 
 

@@ -11,8 +11,9 @@
 
 @protocol FoldersDownloader
 
--(NSArray*)getFolders:(NSString*)onPath;
--(instancetype)initWithToken:(NSString*)token;
+- (NSArray *)getFolders:(NSString *)onPath;
+
+- (instancetype)initWithToken:(NSString *)token;
 
 @end
 

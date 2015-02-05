@@ -9,7 +9,7 @@
 #import "WebViewController.h"
 
 @implementation WebViewController {
-    NSString* token;
+    NSString *token;
 }
 
 - (void)viewDidLoad {
@@ -19,57 +19,49 @@
     [_webView loadRequest:request];
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
-- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
-{
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
     NSLog(@"IN WebViewController:webView");
     NSURL *url = [request URL];
-    
-    if ([url.scheme isEqualToString:URL_SCHEME])
-    {
-        UIApplication* app = [UIApplication sharedApplication];
+
+    if ([url.scheme isEqualToString:URL_SCHEME]) {
+        UIApplication *app = [UIApplication sharedApplication];
         app.networkActivityIndicatorVisible = NO;
         token = [[[url description]
-                  componentsSeparatedByCharactersInSet:
-                  [NSCharacterSet characterSetWithCharactersInString:@"#=&"]] objectAtIndex:2];
-        
+                componentsSeparatedByCharactersInSet:
+                        [NSCharacterSet characterSetWithCharactersInString:@"#=&"]] objectAtIndex:2];
+
         [self performSegueWithIdentifier:@"sendToken" sender:self];
         return NO;
     }
     return YES;
 }
 
-- (void)webViewDidStartLoad:(UIWebView *)webView
-{
+- (void)webViewDidStartLoad:(UIWebView *)webView {
     NSLog(@"IN WebViewController:webViewDidStartLoad");
-    UIApplication* app = [UIApplication sharedApplication];
+    UIApplication *app = [UIApplication sharedApplication];
     app.networkActivityIndicatorVisible = YES;
 }
 
-- (void)webViewDidFinishLoad:(UIWebView *)webView
-{
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
     NSLog(@"IN WebViewController:webViewDidFinishLoad");
-    UIApplication* app = [UIApplication sharedApplication];
+    UIApplication *app = [UIApplication sharedApplication];
     app.networkActivityIndicatorVisible = NO;
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     NSLog(@"IN WebViewController:prepareForSegue [IDENTIFIER]: %@", [segue identifier]);
-    if ([[segue identifier] isEqualToString:@"sendToken"])
-    {
+    if ([[segue identifier] isEqualToString:@"sendToken"]) {
         ListFoldersTableViewController *controller = [[[segue destinationViewController] viewControllers] objectAtIndex:0];
         [controller setToken:token];
         [controller setTitle:@"Disk"];
         [controller setCurrentPath:@"/"];
         NSLog(@"IN WebViewController:prepareForSegue [TITLE]: %@", controller.currentFolder.title);
     }
-    else
-    {
+    else {
         [super prepareForSegue:segue sender:sender];
     }
 }

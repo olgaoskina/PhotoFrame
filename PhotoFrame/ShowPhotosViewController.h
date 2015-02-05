@@ -11,11 +11,13 @@
 
 @interface ShowPhotosViewController : UIViewController
 
--(void) setFolder:(NSString*)newFolder;
--(void) setToken:(NSString*)newToken;
--(void) setIndexToFirstImage:(NSInteger)newIndex;
+- (void)setFolder:(NSString *)newFolder;
 
-@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+- (void)setToken:(NSString *)newToken;
+
+- (void)setIndexToFirstImage:(NSInteger)newIndex;
+
+@property(strong, nonatomic) IBOutlet UIScrollView *scrollView;
+@property(weak, nonatomic) IBOutlet UIImageView *imageView;
 
 @end

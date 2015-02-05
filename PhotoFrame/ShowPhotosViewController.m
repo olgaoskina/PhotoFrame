@@ -15,11 +15,10 @@
     YandexPhotosDownloader *downloader;
 }
 
-@synthesize scrollView=_scrollView;
-@synthesize imageView=_imageView;
+@synthesize scrollView = _scrollView;
+@synthesize imageView = _imageView;
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     [self prepareScrollView];
     [self prepareImageView];
@@ -28,8 +27,7 @@
     NSLog(@"IN ShowPhotosViewController:viewDidLoad");
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
+- (void)viewDidAppear:(BOOL)animated {
     NSLog(@"IN ShowPhotosViewController:viewDidAppear");
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
     NSOperation *loadImgOp = [[NSInvocationOperation alloc] initWithTarget:self
@@ -43,24 +41,21 @@
     [queue addOperation:loadImgOp];
 }
 
--(void) prepareDownloader
-{
+- (void)prepareDownloader {
     NSLog(@"IN ShowPhotosViewController:prepareDownloader");
     YandexPhotosDownloader *localDownloader = [[YandexPhotosDownloader alloc] initWithPath:folder andToken:token];
     [localDownloader setIndex:indexToFirstImage];
-    
+
     [self performSelectorOnMainThread:@selector(setDownloader:)
                            withObject:localDownloader
                         waitUntilDone:YES];
 }
 
--(void) prepareImageView
-{
+- (void)prepareImageView {
     [_imageView setContentMode:UIViewContentModeScaleAspectFit];
 }
 
--(void) prepareScrollView
-{
+- (void)prepareScrollView {
     _scrollView.contentSize = _imageView.frame.size;
     [_scrollView addSubview:_imageView];
     _scrollView.minimumZoomScale = _scrollView.frame.size.width / _imageView.frame.size.width;
@@ -69,33 +64,30 @@
     _scrollView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
 }
 
--(void)prepareSwipeHandling
-{
+- (void)prepareSwipeHandling {
     UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc]
-                                           initWithTarget:self
-                                           action:@selector(didSwipe:)];
+            initWithTarget:self
+                    action:@selector(didSwipe:)];
     swipeLeft.direction = UISwipeGestureRecognizerDirectionLeft;
     [self.view addGestureRecognizer:swipeLeft];
     NSLog(@"IN ShowPhotosViewController:prepareSwipeHandling [LEFT SWIPE SETTED]");
-    
+
     UISwipeGestureRecognizer *swipeRigth = [[UISwipeGestureRecognizer alloc]
-                                            initWithTarget:self
-                                            action:@selector(didSwipe:)];
+            initWithTarget:self
+                    action:@selector(didSwipe:)];
     swipeRigth.direction = UISwipeGestureRecognizerDirectionRight;
     [self.view addGestureRecognizer:swipeRigth];
     NSLog(@"IN ShowPhotosViewController:prepareSwipeHandling [RIGTH SWIPE SETTED]");
 }
 
--(void) prepareTapHandling
-{
-    UITapGestureRecognizer *tapTwice = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapTwice:)];
+- (void)prepareTapHandling {
+    UITapGestureRecognizer *tapTwice = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapTwice:)];
     tapTwice.numberOfTapsRequired = 2;
     [_scrollView addGestureRecognizer:tapTwice];
     NSLog(@"IN ShowPhotosViewController:prepareTapHandling TAPS SETTED");
 }
 
--(void) setNextImage
-{
+- (void)setNextImage {
     NSLog(@"IN ShowPhotosViewController:loadImageInBackground");
     UIImage *photo = [downloader getNextImage];
     [_imageView performSelectorOnMainThread:@selector(setImage:)
@@ -103,20 +95,16 @@
                               waitUntilDone:YES];
 }
 
--(void)didSwipe:(UISwipeGestureRecognizer*)swipe
-{
-    if (swipe.direction == UISwipeGestureRecognizerDirectionLeft)
-    {
+- (void)didSwipe:(UISwipeGestureRecognizer *)swipe {
+    if (swipe.direction == UISwipeGestureRecognizerDirectionLeft) {
         [_imageView setImage:[downloader getNextImage]];
     }
-    else if (swipe.direction == UISwipeGestureRecognizerDirectionRight)
-    {
+    else if (swipe.direction == UISwipeGestureRecognizerDirectionRight) {
         [_imageView setImage:[downloader getPreviousImage]];
     }
 }
 
-- (void)tapTwice:(UIGestureRecognizer *)gesture
-{
+- (void)tapTwice:(UIGestureRecognizer *)gesture {
     if ([_scrollView zoomScale] != _scrollView.minimumZoomScale) {
         CGRect rect = [_scrollView frame];
         [_scrollView zoomToRect:rect animated:YES];
@@ -129,34 +117,28 @@
     }
 }
 
--(void) setToken:(NSString*)newToken
-{
+- (void)setToken:(NSString *)newToken {
     token = newToken;
 }
 
--(void) setDownloader: (YandexPhotosDownloader*)newDownloader
-{
+- (void)setDownloader:(YandexPhotosDownloader *)newDownloader {
     downloader = newDownloader;
 }
 
--(void) setFolder:(NSString*)newFolder
-{
+- (void)setFolder:(NSString *)newFolder {
     folder = newFolder;
 }
 
--(void) setIndexToFirstImage:(NSInteger)newIndex
-{
+- (void)setIndexToFirstImage:(NSInteger)newIndex {
     indexToFirstImage = newIndex;
 }
 
 // ScrollView methods
-- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
-{
+- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
     return _imageView;
 }
 
-- (void)scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(UIView *)view atScale:(CGFloat)scale
-{
+- (void)scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(UIView *)view atScale:(CGFloat)scale {
     [_scrollView flashScrollIndicators];
 }
 

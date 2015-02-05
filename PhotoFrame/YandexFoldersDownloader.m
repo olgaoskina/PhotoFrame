@@ -62,7 +62,7 @@
     return result;
 }
 
--(long) getCountPhotosInFolder {
+- (long)getCountPhotosInFolder {
     return countPhotos;
 }
 

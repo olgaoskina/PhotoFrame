@@ -13,10 +13,13 @@
 
 @protocol PhotosDownloader
 
--(UIImage*)getNextImage;
--(UIImage*)getPreviousImage;
--(NSArray*)getFiles:(NSString*)onPath;
--(instancetype)initWithPath:(NSString*) path andToken:(NSString*)token;
+- (UIImage *)getNextImage;
+
+- (UIImage *)getPreviousImage;
+
+- (NSArray *)getFiles:(NSString *)onPath;
+
+- (instancetype)initWithPath:(NSString *)path andToken:(NSString *)token;
 
 @end
 

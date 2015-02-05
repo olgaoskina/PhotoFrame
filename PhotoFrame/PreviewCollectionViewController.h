@@ -16,8 +16,10 @@
     NSString *folder;
     YandexPhotosDownloader *downloader;
 }
-@property (strong, nonatomic) IBOutlet UICollectionView *photosCollectionView;
--(void) setFolder:(NSString*)newFolder;
--(void) setToken:(NSString*)newToken;
+@property(strong, nonatomic) IBOutlet UICollectionView *photosCollectionView;
+
+- (void)setFolder:(NSString *)newFolder;
+
+- (void)setToken:(NSString *)newToken;
 
 @end

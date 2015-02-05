@@ -18,7 +18,7 @@
     long countPhotos;
 }
 
--(long) getCountPhotosInFolder;
+- (long)getCountPhotosInFolder;
 
 @end
 
