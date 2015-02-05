@@ -39,15 +39,15 @@
     _photosCollectionView.bounces = YES;
 }
 
--(void) setPhotoWithIndex: (NSDictionary*) params
+-(void) setPhoto: (NSDictionary*) params
 {
     NSIndexPath *indexPath = params[@"indexPath"];
     PhotoCell *cell = params[@"cell"];
     UIImage *photo = [downloader getImage:[downloader getPathsToPhotos][indexPath.row]];
     [cell.imageView performSelectorOnMainThread:@selector(setImage:)
-                           withObject:photo
-                        waitUntilDone:YES];
-    NSLog(@"IN PreviewCollectionViewController:setPhotoWithIndex [PHOTO SETTED]");
+                                     withObject:photo
+                                  waitUntilDone:YES];
+    NSLog(@"IN PreviewCollectionViewController:setPhoto [PHOTO SETTED]");
 }
 
 -(void) setToken:(NSString*)newToken
@@ -70,17 +70,16 @@
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"IN PreviewCollectionViewController:cellForItemAtIndexPath [INDEX]: %lu [NAME]: %@", (long)indexPath.row, [downloader getPathsToPhotos][indexPath.row]);
-    PhotoCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PhotoCell" forIndexPath:indexPath];
+    PhotoCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PhotoCell"
+                                                                forIndexPath:indexPath];
     
     NSDictionary* params = [NSDictionary dictionaryWithObjectsAndKeys:indexPath,@"indexPath",cell,@"cell", nil];
     
     cell.imageView.image = nil;
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
-    NSOperation *loadImgOp = [[NSInvocationOperation alloc]
-                              initWithTarget:self
-                              selector:@selector(setPhotoWithIndex:)
-                              object:params];
+    NSOperation *loadImgOp = [[NSInvocationOperation alloc] initWithTarget:self
+                                                                  selector:@selector(setPhoto:)
+                                                                    object:params];
     [queue addOperation:loadImgOp];
     
     return cell;

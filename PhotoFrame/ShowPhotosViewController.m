@@ -32,14 +32,12 @@
 {
     NSLog(@"IN ShowPhotosViewController:viewDidAppear");
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
-    NSOperation *loadImgOp = [[NSInvocationOperation alloc]
-                              initWithTarget:self
-                              selector:@selector(setNextImage)
-                              object:nil];
-    NSOperation *prepareDownloader = [[NSInvocationOperation alloc]
-                                           initWithTarget:self
-                                           selector:@selector(prepareDownloader)
-                                           object:nil];
+    NSOperation *loadImgOp = [[NSInvocationOperation alloc] initWithTarget:self
+                                                                  selector:@selector(setNextImage)
+                                                                    object:nil];
+    NSOperation *prepareDownloader = [[NSInvocationOperation alloc] initWithTarget:self
+                                                                          selector:@selector(prepareDownloader)
+                                                                            object:nil];
     [loadImgOp addDependency:prepareDownloader];
     [queue addOperation:prepareDownloader];
     [queue addOperation:loadImgOp];
@@ -52,8 +50,8 @@
     [localDownloader setIndex:indexToFirstImage];
     
     [self performSelectorOnMainThread:@selector(setDownloader:)
-                                 withObject:localDownloader
-                              waitUntilDone:YES];
+                           withObject:localDownloader
+                        waitUntilDone:YES];
 }
 
 -(void) prepareImageView
