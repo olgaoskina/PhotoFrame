@@ -25,6 +25,7 @@
     downloader = [[YandexPhotosDownloader alloc] initWithPath:folder andToken:token];
     [downloader setSize:@"S"];
     [_photosCollectionView reloadData];
+    NSLog(@"IN PreviewCollectionViewController:viewDidAppear [RELOAD DATA]");
 }
 
 -(void) prepareCollectionView

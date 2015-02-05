@@ -21,18 +21,39 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSLog(@"IN ShowPhotosViewController:viewDidLoad");
     [self prepareScrollView];
     [self prepareImageView];
     [self prepareSwipeHandling];
     [self prepareTapHandling];
+    NSLog(@"IN ShowPhotosViewController:viewDidLoad");
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    downloader = [[YandexPhotosDownloader alloc] initWithPath:folder andToken:token];
-    [downloader setIndex:indexToFirstImage];
-    [_imageView setImage:[downloader getNextImage]];
+    NSLog(@"IN ShowPhotosViewController:viewDidAppear");
+    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    NSOperation *loadImgOp = [[NSInvocationOperation alloc]
+                              initWithTarget:self
+                              selector:@selector(setNextImage)
+                              object:nil];
+    NSOperation *prepareDownloader = [[NSInvocationOperation alloc]
+                                           initWithTarget:self
+                                           selector:@selector(prepareDownloader)
+                                           object:nil];
+    [loadImgOp addDependency:prepareDownloader];
+    [queue addOperation:prepareDownloader];
+    [queue addOperation:loadImgOp];
+}
+
+-(void) prepareDownloader
+{
+    NSLog(@"IN ShowPhotosViewController:prepareDownloader");
+    YandexPhotosDownloader *localDownloader = [[YandexPhotosDownloader alloc] initWithPath:folder andToken:token];
+    [localDownloader setIndex:indexToFirstImage];
+    
+    [self performSelectorOnMainThread:@selector(setDownloader:)
+                                 withObject:localDownloader
+                              waitUntilDone:YES];
 }
 
 -(void) prepareImageView
@@ -57,14 +78,14 @@
                                            action:@selector(didSwipe:)];
     swipeLeft.direction = UISwipeGestureRecognizerDirectionLeft;
     [self.view addGestureRecognizer:swipeLeft];
-    NSLog(@"Left swipe setted");
+    NSLog(@"IN ShowPhotosViewController:prepareSwipeHandling [LEFT SWIPE SETTED]");
     
     UISwipeGestureRecognizer *swipeRigth = [[UISwipeGestureRecognizer alloc]
                                             initWithTarget:self
                                             action:@selector(didSwipe:)];
     swipeRigth.direction = UISwipeGestureRecognizerDirectionRight;
     [self.view addGestureRecognizer:swipeRigth];
-    NSLog(@"Rigth swipe setted");
+    NSLog(@"IN ShowPhotosViewController:prepareSwipeHandling [RIGTH SWIPE SETTED]");
 }
 
 -(void) prepareTapHandling
@@ -73,6 +94,15 @@
     tapTwice.numberOfTapsRequired = 2;
     [_scrollView addGestureRecognizer:tapTwice];
     NSLog(@"IN ShowPhotosViewController:prepareTapHandling TAPS SETTED");
+}
+
+-(void) setNextImage
+{
+    NSLog(@"IN ShowPhotosViewController:loadImageInBackground");
+    UIImage *photo = [downloader getNextImage];
+    [_imageView performSelectorOnMainThread:@selector(setImage:)
+                                 withObject:photo
+                              waitUntilDone:YES];
 }
 
 -(void)didSwipe:(UISwipeGestureRecognizer*)swipe
@@ -104,6 +134,11 @@
 -(void) setToken:(NSString*)newToken
 {
     token = newToken;
+}
+
+-(void) setDownloader: (YandexPhotosDownloader*)newDownloader
+{
+    downloader = newDownloader;
 }
 
 -(void) setFolder:(NSString*)newFolder
